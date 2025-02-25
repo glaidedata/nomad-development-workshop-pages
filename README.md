@@ -11,12 +11,12 @@ In **FAIRmat tutorial 16**, you'll learn how to use **NOMAD** to manage and orga
 
 ## What you'll do:
 
-- 🌐 [**Explore NOMAD entries**](https://fairmat-nfdi.github.io/FAIRmat-tutorial-16/T16_2/T16_2_explore_data_records/) and gain insights from the rich metadata structured in NOMAD's data model.
-- 📥 [**Upload raw data files**](https://fairmat-nfdi.github.io/FAIRmat-tutorial-16/T16_3/T16_3_upload_raw_data_files/) and inspect the extracted data structured in NOMAD’s data model.
-- 🗂️ [**Create a dataset**](https://fairmat-nfdi.github.io/FAIRmat-tutorial-16/T16_5/T16_5_create_a_dataset/) and simulate publishing it with a DOI.
-- 📖 [**Document your research**](https://fairmat-nfdi.github.io/FAIRmat-tutorial-16/T16_6/T16_6_document_your_research/) using NOMAD’s built-in ELN templates.  
-- 🛠️ [**Create custom ELN templates**](https://fairmat-nfdi.github.io/FAIRmat-tutorial-16/T16_7/T16_7_create_custom_eln_templates/) (demo).  
-- 🛠️ [**Use the tabular parser**](https://fairmat-nfdi.github.io/FAIRmat-tutorial-16/T16_8/T16_8_write_a_custom_parser/) for tabular data, such as `.csv` or `.xls` files (demo).  
+- 🌐 [**Explore NOMAD entries**](https://fairmat-nfdi.github.io/FAIRmat-tutorial-16/T16_2/T16_2_explore_data_records.html) and gain insights from the rich metadata structured in NOMAD's data model.
+- 📥 [**Upload raw data files**](https://fairmat-nfdi.github.io/FAIRmat-tutorial-16/T16_3/T16_3_upload_raw_data_files.html) and inspect the extracted data structured in NOMAD’s data model.
+- 🗂️ [**Create a dataset**](https://fairmat-nfdi.github.io/FAIRmat-tutorial-16/T16_5/T16_5_create_a_dataset.html) and simulate publishing it with a DOI.
+- 📖 [**Document your research**](https://fairmat-nfdi.github.io/FAIRmat-tutorial-16/T16_6/T16_6_document_your_research.html) using NOMAD’s built-in ELN templates.  
+- 🛠️ [**Create custom ELN templates**](https://fairmat-nfdi.github.io/FAIRmat-tutorial-16/T16_7/T16_7_create_custom_eln_templates.html) (demo).  
+- 🛠️ [**Use the tabular parser**](https://fairmat-nfdi.github.io/FAIRmat-tutorial-16/T16_8/T16_8_write_a_custom_parser.html) for tabular data, such as `.csv` or `.xls` files (demo).  
 
 ## At the end of this tutorial, you will be able to:
 - Efficiently **search, filter, and explore materials-science data** in NOMAD.  
