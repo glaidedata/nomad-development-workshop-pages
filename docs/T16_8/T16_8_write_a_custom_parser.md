@@ -16,7 +16,7 @@ More details on the different representations of tabular data can be found in [N
 
 ## Steps to Utilize NOMAD's Tabular Parser for `.csv` Data
 
-We use an example `.csv` file, which is the output of an optical absorption instrument. You can find the **P3HT_optical.csv** file in [tutorial_16_materials/part_4_files](https://github.com/siamakn/temp_tutorial_16/tree/main/tutorial_16_materials){:target="_blank"} or download it [here](https://github.com/siamakn/temp_tutorial_16/blob/main/tutorial_16_materials/part_4_files/P3HT_optical.csv){:target="_blank"}. We open this file using Notepad and have a quick look:
+We use an example `.csv` file, which is the output of an optical absorption instrument. You can find the **P3HT_optical.csv** file in [tutorial_16_materials/part_4_files](https://github.com/FAIRmat-NFDI/FAIRmat-tutorial-16/tree/main/tutorial_16_materials){:target="_blank"} or download it [here](https://github.com/FAIRmat-NFDI/FAIRmat-tutorial-16/blob/main/tutorial_16_materials/part_4_files/P3HT_optical.csv){:target="_blank"}. We open this file using Notepad and have a quick look:
 
 <div style="text-align: center;">
     <img src="images/notpad_p3ht_optical.png" alt="csv file view" width="300">
@@ -183,7 +183,7 @@ info_about_data:
       component: RichTextEditQuantity
 ```
 
-Finally our custom schema file should look like the following. You can also find the **optical_absorptoion_plot_schema.archive.yaml** file in [tutorial_16_materials/part_4_files](https://github.com/siamakn/temp_tutorial_16/tree/main/tutorial_16_materials){:target="_blank"} or download it [here](https://github.com/siamakn/temp_tutorial_16/blob/main/tutorial_16_materials/part_4_files/optical_absorption_plot.archive.yaml){:target="_blank"}.
+Finally our custom schema file should look like the following. You can also find the **optical_absorptoion_plot_schema.archive.yaml** file in [tutorial_16_materials/part_4_files](https://github.com/FAIRmat-NFDI/FAIRmat-tutorial-16/tree/main/tutorial_16_materials){:target="_blank"} or download it [here](https://github.com/FAIRmat-NFDI/FAIRmat-tutorial-16/blob/main/tutorial_16_materials/part_4_files/optical_absorption_plot.archive.yaml){:target="_blank"}.
 
 ```yaml
 definitions:
@@ -245,7 +245,7 @@ Now that we have created the ELN schema file for parsing the optical absorption 
 ??? example "Example: Adding Plot to the Polymer Processing custom schema (Steps)"
 
     Now, let's enhance our Polymer Processing schema to include the tabular parser and the plot. 
-    We already made the following custom schema  **polymer_processing_schema.archive.yaml**. You simply copy the snippet or download it [here](https://github.com/siamakn/temp_tutorial_16/blob/main/tutorial_16_materials/part_4_files/polymer_processing_schema.archive.yaml){:target="_blank"}. 
+    We already made the following custom schema  **polymer_processing_schema.archive.yaml**. You simply copy the snippet or download it [here](https://github.com/FAIRmat-NFDI/FAIRmat-tutorial-16/blob/main/tutorial_16_materials/part_4_files/polymer_processing_schema.archive.yaml){:target="_blank"}. 
 
     ```yaml
     definitions:
@@ -357,4 +357,4 @@ Now that we have created the ELN schema file for parsing the optical absorption 
       and then copy and paste everything else (starting from 'base_sections:'), one level indented with respect to `section:`. Optionally, we can benefit from a **more specialized** NOMAD base section `nomad.datamodel.metainfo.basesections.Measurement` instead of `nomad.datamodel.data.EntryData`. This gives us more functionalities than just making an entry.
 
 
-    You can also find the **polymer_processing_and_optical_absorptoion_plot_schema.archive.yaml** file in [tutorial_16_materials/part_4_files](https://github.com/siamakn/temp_tutorial_16/tree/main/tutorial_16_materials){:target="_blank"} or download it [here](https://github.com/siamakn/temp_tutorial_16/blob/main/tutorial_16_materials/part_4_files/polymer_processing_tabular_parser_optical_absorption.archive.yaml){:target="_blank"}.
+    You can also find the **polymer_processing_and_optical_absorptoion_plot_schema.archive.yaml** file in [tutorial_16_materials/part_4_files](https://github.com/FAIRmat-NFDI/FAIRmat-tutorial-16/tree/main/tutorial_16_materials){:target="_blank"} or download it [here](https://github.com/FAIRmat-NFDI/FAIRmat-tutorial-16/blob/main/tutorial_16_materials/part_4_files/polymer_processing_tabular_parser_optical_absorption.archive.yaml){:target="_blank"}.

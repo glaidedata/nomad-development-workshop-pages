@@ -6,7 +6,7 @@ In this part, we
 - Finally, inspect the YAML file of the polymer processing example, and 
 
 ??? example "Example: Inspecting a custom ELN for polymer processing in NOMAD GUI"
-    Now let's inspect a simple custom ELN for Polymer Processing together. You can find the **polymer_processing_schema.archive.yaml** file in [tutorial_16_materials/part_4_files](https://github.com/siamakn/temp_tutorial_16/tree/main/tutorial_16_materials){:target="_blank"} or download it [here](https://github.com/siamakn/temp_tutorial_16/blob/main/tutorial_16_materials/part_4_files/polymer_processing_schema.archive.yaml){:target="_blank"}. In order to see how it looks like in the NOMAD GUI, make a new upload, and drag and drop the *polymer_processing_schema.archive.yaml** file, so that NOMAD can process it. Then create a new entry, based on this schema (scrreenshots). 
+    Now let's inspect a simple custom ELN for Polymer Processing together. You can find the **polymer_processing_schema.archive.yaml** file in [tutorial_16_materials/part_4_files](https://github.com/FAIRmat-NFDI/FAIRmat-tutorial-16/tree/main/tutorial_16_materials){:target="_blank"} or download it [here](https://github.com/FAIRmat-NFDI/FAIRmat-tutorial-16/blob/main/tutorial_16_materials/part_4_files/polymer_processing_schema.archive.yaml){:target="_blank"}. In order to see how it looks like in the NOMAD GUI, make a new upload, and drag and drop the *polymer_processing_schema.archive.yaml** file, so that NOMAD can process it. Then create a new entry, based on this schema (scrreenshots). 
     <div style="text-align: center;">
         <img src="images/upload_custom_schema_0_1_2_3.png" alt="upload custom schema create entry" width="800">
     </div>    
@@ -184,7 +184,7 @@ To build a custom NOMAD ELN, you need to use the NOMAD metainfo schema language,
 
 
 ??? example "Example: Inspecting the YAML schema of the polymer processing ELN"
-    Now let's inspect the [YAML schema file](https://github.com/siamakn/temp_tutorial_16/blob/main/tutorial_16_materials/part_4_files/polymer_processing_schema.archive.yaml){:target="_blank"} of the above custom Polymer Processing ELN together. We use vscode to show and edit this file.
+    Now let's inspect the [YAML schema file](https://github.com/FAIRmat-NFDI/FAIRmat-tutorial-16/blob/main/tutorial_16_materials/part_4_files/polymer_processing_schema.archive.yaml){:target="_blank"} of the above custom Polymer Processing ELN together. We use vscode to show and edit this file.
 
     Here we started with `definitions:`, we have a `name:`, and don't have a `description` (guideline 1). A schema is a section itself, therefore having the keyword `sections:` (guideline 4).
     <div style="text-align: center;">

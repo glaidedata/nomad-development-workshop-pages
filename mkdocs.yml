@@ -2,7 +2,7 @@ site_name: FAIRmat Tutorial 16
 site_description: |
   Tutorial 16  materials
 site_author: FAIRmat Area F
-repo_url: https://github.com/siamakn/temp_tutorial_16
+repo_url: https://github.com/FAIRmat-NFDI/FAIRmat-tutorial-16
 edit_uri: ""
 
 nav:

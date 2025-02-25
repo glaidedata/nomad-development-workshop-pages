@@ -8,7 +8,7 @@ Preparing materials for FAIRmat Tutorial 16
 **Speakers:** Adrianna Wojas, Ahmed Mansour, Siamak Nakhaie  
 **Location:** Online  
 **Web:** <a href="https://events.fairmat-nfdi.eu/event/34/" target="_blank" rel="noopener noreferrer">https://events.fairmat-nfdi.eu/event/34/</a>  
-**Slides and files:** Download <a href="https://github.com/siamakn/temp_tutorial_16/tree/main/tutorial_16_materials" target="_blank" rel="noopener noreferrer">here</a>
+**Slides and files:** Download <a href="https://github.com/FAIRmat-NFDI/FAIRmat-tutorial-16/tree/main/tutorial_16_materials" target="_blank" rel="noopener noreferrer">here</a>
 
 
 
