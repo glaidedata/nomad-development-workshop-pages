@@ -383,28 +383,39 @@ Widgets allow you to customize your search interface to better suit your data ex
     
     1. Click on the `+ TERMS` button to open the *Edit terms widget* menu.
 
-        ![screenshot of step 1](images/organization/widget_step_1.png)
+    <div style="text-align: center;">
+        <img src="images/organization/widget_step_1.png" alt="Screenshot of the Edit terms widget menu" width="800">
+    </div>
 
     2. In the *Search quantity* field, type *eln*. A list of available filters will appear.
 
     3. Select `results.eln.sections` from the list. This will enable filtering based on the built-in ELN sections available in your ELN upload.
 
-        ![screenshot of steps 2 and 3](images/organization/widget_step_2_3.png) 
+    <div style="text-align: center;">
+        <img src="images/organization/widget_step_2_3.png" alt="Screenshot of selecting results.eln.sections filter" width="400">
+    </div>
 
     4. Write a descriptive title for the custom widget in *Title field*.
 
     5. Click DONE!
 
-        ![screenshot of steps 4 and 5](images/organization/widget_step_4_5.png)
+    <div style="text-align: center;">
+        <img src="images/organization/widget_step_4_5.png" alt="Screenshot of finalizing the custom widget" width="400">
+    </div>
 
     The new ELN sections widget now appears at the top of your **EXPLORE** page and displays ELN entry types along with their corresponding counts.
 
-    ![screenshot of the widget](images/organization/widget_step_5r.png)
+    <div style="text-align: center;">
+        <img src="images/organization/widget_step_5r.png" alt="Screenshot of the newly created ELN sections widget" width="400">
+    </div>
 
     You can now follow the same steps to create a custom widget for filtering by custom tags.
 
     In Step 3, instead of selecting `results.eln.sections`, choose `results.eln.tags`. This will create a widget that filters your ELN entries based on the custom tags you have assigned.
 
-    This widget will then appear on your EXPLORE page, allowing you to quickly view and filter entries by their associated tags.
+    This widget will then appear on your **EXPLORE** page, allowing you to quickly view and filter entries by their associated tags.
 
-    ![animation of filtering using widgets](images/organization/explore_you_ELN_entries.gif)
+    <div style="text-align: center;">
+        <img src="images/organization/explore_you_ELN_entries.gif" alt="Animation of filtering using widgets" width="800">
+    </div>
+
