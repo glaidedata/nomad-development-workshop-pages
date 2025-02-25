@@ -1,0 +1,62 @@
+site_name: FAIRmat Tutorial 16
+site_description: |
+  Tutorial 16  materials
+site_author: FAIRmat Area F
+repo_url: https://github.com/siamakn/temp_tutorial_16
+edit_uri: ""
+
+nav:
+  - Home: index.md
+  - Contents:
+#      - Search and Filter: T16_1/T16_1_search_and_filter.md
+      - Explore NOMAD entries: T16_2/T16_2_explore_data_records.md
+      - Upload Raw Data Files: T16_3/T16_3_upload_raw_data_files.md
+#      - Visualize Your Data: T16_4/T16_4_visualize_your_data.md
+      - Create a Dataset: T16_5/T16_5_create_a_dataset.md
+      - Document Your Research: T16_6/T16_6_document_your_research.md
+      - Create Custom ELN Templates: T16_7/T16_7_create_custom_eln_templates.md
+      - Use Tabular Parser: T16_8/T16_8_write_a_custom_parser.md
+
+plugins:
+ - search
+theme:
+  name: material
+  palette:
+    primary: '#2A4CDF'
+    accent: '#008A67'
+  font:
+    text: 'Titillium Web'
+  logo: assets/fairmat-logo.png
+  favicon: assets/favicon.png
+  features:
+    - navigation.instant
+    - navigation.footer
+    - content.code.copy
+  custom_dir: docs/theme
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - admonition
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - toc:
+      permalink: True
+  - pymdownx.arithmatex:
+      generic: true
+  - attr_list
+  - mkdocs-click
+  - pymdownx.extra
+extra:
+  generator: false
+  homepage: https://www.fairmat-nfdi.eu/fairmat/
+use_directory_urls: false
+extra_css:
+  - stylesheets/extra.css
+extra_javascript:
+#  - javascript.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
