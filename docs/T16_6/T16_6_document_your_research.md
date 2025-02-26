@@ -262,8 +262,7 @@ Now, let's create an entry using the built-in *Material Processing ELN* schema f
         <img src="images/create_built-in_schema/workflow_graph_2.png" alt="create built-in schema" width="400">
     </div>    
 
-??? task "I suggest to put a checkpoint here, for those who did not follow"
-    something like: please download these files from here and drag and drop them to your upload.
+
 
 
 ### Create a measurement entry
