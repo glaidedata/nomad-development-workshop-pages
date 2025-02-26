@@ -88,7 +88,7 @@ Here are the main four widgets:
 
 ## Example 1: Finding Alternative ETL Materials for Perovskite Solar Cells
 
-In the following, we'll walk you through an example to help you better understand how to use these widgets. Imagine we are working on solar cell research and have fabricated solar cell devices using the absorber material 'CsPbBrI' (Cesium Lead Bromine Iodide), a mixed halide perovskite. The device's structure is illustrated below:
+In the following, we'll walk you through an example to help you better understand how to use these widgets. Imagine we are working on solar cell research and have fabricated solar cell devices using the absorber material 'CsPbBr2I' (Cesium Lead Bromine Iodide), a mixed halide perovskite. The device's structure is illustrated below:
 
 <div style="text-align: center;">
     <img src="images/solar_cell_device.png" alt="Solar Cell Device" width="500">
@@ -98,7 +98,7 @@ In the following, we'll walk you through an example to help you better understan
 
 - **Contact:** Au
 - **HTL (Hole Transport Layer):** Spiro-OMeTAD (C81​H68​N4​O8​)
-- **Perovskite Absorber:** CsPbBrI
+- **Perovskite Absorber:** CsPbBr2I
 - **ETL (Electron Transport Layer):** TiO2-c (compact Titanium Dioxide)
 - **Contact:** FTO (Fluorine-doped Tin Oxide)
 - **Substrate:** SLG (Soda Lime Glass)
