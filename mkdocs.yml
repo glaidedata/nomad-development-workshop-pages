@@ -53,7 +53,7 @@ markdown_extensions:
 extra:
   generator: false
   homepage: https://www.fairmat-nfdi.eu/fairmat/
-    icon:
+  icon:
     repo: fontawesome/brands/github
 use_directory_urls: false
 extra_css:
