@@ -1,6 +1,6 @@
 # Explore Data in NOMAD
 
-The **EXPLORE** menu allows you to navigate and search through a vast amount of materials-science data. Currently, the this menu offers several options for exploring data including:
+The **EXPLORE** menu allows you to navigate and search through a vast amount of materials-science data. Currently, this menu offers several options for exploring data including:
 
 - **Entries**: Search entries across all domains.
 - **Theory**: Focus on calculations and materials data derived from theoretical models.
@@ -148,7 +148,7 @@ Let’s explore how **hole transport layer (HTL) materials** affect efficiency i
 </div>
 
 ### Step 1: Open the Perovskite Solar Cell Database Dashboard  
-- Navigate to **EXPLORE** → **Solar Cells** → **Perovskite Solar Cells Database**.  
+- Navigate to **EXPLORE** → **Solar Cells**.  
 - This dashboard provides predefined filters and plots optimized for solar cell research.
 
 <div style="text-align: center;">
