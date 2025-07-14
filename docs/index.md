@@ -9,7 +9,7 @@ In this tutorial, you'll learn how to use **NOMAD** to manage and organize your 
 - 🗂️ [**Create a dataset**](https://fairmat-nfdi.github.io/FAIRmat-tutorial-16/T16_5/T16_5_create_a_dataset.html) and simulate publishing it with a DOI.
 - 📖 [**Document your research**](https://fairmat-nfdi.github.io/FAIRmat-tutorial-16/T16_6/T16_6_document_your_research.html) using NOMAD’s built-in ELN templates.
 - 🛠️ [**Create custom ELN templates**](https://fairmat-nfdi.github.io/FAIRmat-tutorial-16/T16_7/T16_7_create_custom_eln_templates.html) (demo).
-- 🛠️ [**Use the tabular parser**](https://fairmat-nfdi.github.io/FAIRmat-tutorial-16/T16_8/T16_8_write_a_custom_parser.html) for tabular data, such as `.csv` or `.xls` files (demo).
+<!-- - 🛠️ [**Use the tabular parser**](https://fairmat-nfdi.github.io/FAIRmat-tutorial-16/T16_8/T16_8_write_a_custom_parser.html) for tabular data, such as `.csv` or `.xls` files (demo). -->
 
 ## At the end of this tutorial, you will be able to:
 - Efficiently **search, filter, and explore data** in NOMAD.
