@@ -26,6 +26,20 @@
     background-color: #2A4CDF;
 }
 
+.md-footer-custom {
+  background-color: #2A4CDF; /* match your theme color */
+  padding: 0.5rem 1rem;
+  margin: 0;
+}
+
+.md-footer-custom .md-footer-license {
+  color: white;
+  font-size: 1.00em;
+  text-align: center;
+  margin: 0;
+}
+
+
 .md-search__form:hover {
     background-color: rgba(0,0,0,.13);
 }
