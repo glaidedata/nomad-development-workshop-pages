@@ -1,4 +1,4 @@
-# Tutorial: User Basics -- Getting started with NOMAD for research data management
+# Tutorial: User Basics&mdash;Getting started with NOMAD for research data management
 
 In this tutorial, you'll learn how to use **NOMAD** to manage and organize your research data. Whether you are working with computational or experimental data, NOMAD's graphical user interface makes it easy to upload, share, explore, and analyze your data. We will also focus on using NOMAD to improve collaboration on your research projects and to ensure that your data align with the FAIR data principles (Findable, Accessible, Interoperable, and Reusable).
 
