@@ -1,0 +1,22 @@
+# LICENSE NOTICE – Glaide Data GmbH Modifications
+
+This repository includes material originally developed by the FAIRmat Consortium and licensed under the Apache License, Version 2.0.
+
+You can find the original license and attribution in the included `LICENSE` file and in the upstream repository at: https://github.com/FAIRmat-NFDI/FAIRmat-tutorial-16.git
+
+---
+
+## Modifications by Glaide Data GmbH
+
+Portions of this repository have been modified and extended by **Glaide Data GmbH**.
+
+All such modifications, additions, and supporting content — including branding, formatting changes, custom workflows, training materials, and deployment configurations — are **proprietary** and may not be copied, redistributed, or reused outside of licensed use without prior written permission from Glaide Data GmbH.
+
+These changes are provided to clients of Glaide Data GmbH under specific licensing or service agreements. Unauthorized distribution or public reproduction is not permitted.
+
+---
+
+## Summary
+
+- Original content: © FAIRmat-NFDI, Apache License
+
