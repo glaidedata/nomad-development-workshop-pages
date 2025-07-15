@@ -3,8 +3,9 @@ name: Deploy MkDocs Site
 on:
   push:
     branches:
-      - develop # Triggers deployment on push to the main branch
- 
+      - main # Triggers deployment on push to the main branch
+  workflow_dispatch:  # Allow manual runs via the GitHub Actions UI
+
 permissions:
   contents: write
 
