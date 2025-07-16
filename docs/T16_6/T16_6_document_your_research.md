@@ -54,14 +54,14 @@ Now, let's create an entry using the built-in *Substance ELN* schema for **P3HT 
 
 ??? info "The input data fields that the built-in schema *Substance ELN* offer:"
     The built-in schema *Substance ELN*  provides the following fields for input:
-    
+
     - **substance name:** Automatically used as the entry file name.
     - **datetime:** Allows entry of a date/time stamp.
     - **substance ID:** A unique, human-readable ID for the substance.
     - **detailed substance description:** A free text field for additional information.
 
     Additional subsections available in the *data* subsection include:
-    
+
     - **elemental composition:** Define the chemical composition with atomic and mass fractions.
     - **pure substance:** Specify if the material is a pure substance purchased from an external vendor, with fields like:
         - Substance name
@@ -73,12 +73,12 @@ Now, let's create an entry using the built-in *Substance ELN* schema for **P3HT 
 
 ??? task "Task: Create an ELN entry for a substance (ca. 3 minutes)"
     Create an ELN entry in NOMAD for one of the following substances:
-    
-    - Chloroform  
-    - Glass substrate  
-    - Pre-patterned ITO substrates  
 
-    Use the *Substance ELN* schema and include as many details as you like (e.g., Substance Name, Datetime, Substance ID, Description).  
+    - Chloroform
+    - Glass substrate
+    - Pre-patterned ITO substrates
+
+    Use the *Substance ELN* schema and include as many details as you like (e.g., Substance Name, Datetime, Substance ID, Description).
 
     > **Tip:** Follow the [steps for creating an entry](#create-an-entry-using-nomads-built-in-schema).
 
@@ -87,7 +87,7 @@ Now, let's create an entry using the built-in *Substance ELN* schema for **P3HT 
 Now, let's create an entry using the built-in *Generic Sample ELN* schema for **P3HT Thin Film**. Follow the steps for [creating an entry using NOMAD's Built-in Schema.](#create-an-entry-using-nomads-built-in-schema) and select *Generic Sample ELN* in step 3.
 
 ??? example "Example: Creating an entry for P3HT thin film on glass (screenshots)"
-    
+
     <div style="text-align: center;">
         <img src="images/create_built-in_schema/create_sample_eln_step_1.png" alt="create built-in schema for sample" width="800">
     </div>
@@ -98,25 +98,25 @@ Now, let's create an entry using the built-in *Generic Sample ELN* schema for **
 
 ??? info "The input data fields that the built-in schema *Generic Sample ELN* offers:"
     The built-in schema *Generic Sample ELN* provides the following fields for input:
-    
+
     - **name:** Automatically used as the entry file name.
     - **datetime:** Allows entry of a date/time stamp.
     - **ID:** A unique, human-readable ID for the sample.
     - **description:** A free text field for additional information.
 
     Additional subsections available in the *data* subsection include:
-    
+
     - **elemental composition:** Define the chemical composition with atomic and mass fractions.
     - **components:** Specify the components used to create the sample, including raw materials or system components.
     - **sample identifier:** Add unique identifiers for the sample.
 
 ??? task "Task: Create an ELN entry for a sample (ca. 1 minute)"
     Create an ELN entry in NOMAD for one of the following samples:
-    
-    - P3HT Thin Film  
-    - P3HT Solution  
 
-    Use the *Generic Sample ELN* schema and include as many details as you like (e.g., Short Name, Datetime, ID, Description).  
+    - P3HT Thin Film
+    - P3HT Solution
+
+    Use the *Generic Sample ELN* schema and include as many details as you like (e.g., Short Name, Datetime, ID, Description).
 
     > **Tip:** Follow the [steps for creating an entry](#create-an-entry-using-nomads-built-in-schema).
 
@@ -136,26 +136,26 @@ Now, let's create an entry using the built-in *Instrument ELN* schema for **UV O
 
 ??? info "The input data fields that the built-in schema *Instrument ELN* offers:"
     The built-in schema *Instrument ELN* provides the following fields for input:
-    
+
     - **name:** Automatically used as the entry file name.
     - **datetime:** Allows entry of a date/time stamp.
     - **ID:** A unique, human-readable ID for the instrument.
     - **description:** A free text field for additional information.
 
     Additional subsections available in the *data* subsection include:
-    
+
     - **instrument identifiers:** Specify the type of instrument and additional metadata, if applicable.
 
 ??? task "Task: Create an ELN entry for an instrument (ca. 1 minute)"
     Create an ELN entry in NOMAD for one of the following instruments:
-    
-    - Ultrasonic Bath  
-    - Scale  
-    - Optical Spectrometer  
-    - Conductivity Board  
-    - Spin Coater  
 
-    Use the *Instrument ELN* schema and include as many details as you like (e.g., name, datetime, ID, description).  
+    - Ultrasonic Bath
+    - Scale
+    - Optical Spectrometer
+    - Conductivity Board
+    - Spin Coater
+
+    Use the *Instrument ELN* schema and include as many details as you like (e.g., name, datetime, ID, description).
 
     > **Tip:** Follow the [steps for creating an entry](#create-an-entry-using-nomads-built-in-schema).
 
@@ -183,7 +183,7 @@ Now, let's create an entry using the built-in *Material Processing ELN* schema f
 
 ??? info "The input data fields that the built-in schema *Material Processing ELN* offers:"
     The *Material Processing ELN* schema provides the following fields for input:
-    
+
     - **name:** Automatically used as the entry file name.
     - **starting time and ending time:** Allows entry of a date/time stamp for the process duration.
     - **ID:** A unique, human-readable ID for the process.
@@ -193,17 +193,17 @@ Now, let's create an entry using the built-in *Material Processing ELN* schema f
 
 
 ??? example "Continue the above example: Fill sdditional subsections available in the *data* subsection (screenshots):"
-    Additional subsections available in the *data* subsection include (screenshots): 
-    
+    Additional subsections available in the *data* subsection include (screenshots):
+
     - **steps:** Define the step-by-step procedure for the material processing. Here we add 3 steps for our process: polymer weighing, solvent filling, and mixing. to do this use the **+** in front of the **steps** subsection and add process step name and description. Don't forget to save after each step, and make sure you make the steps in order, because you cannot reorder them later. (see screenshots)
-  
+
     <div style="text-align: center;">
         <img src="images/create_built-in_schema/create_material_processing_eln_step_6_to_11.png" alt="create built-in schema" width="800">
     </div>
 
 
     - **instruments:** List the instruments used in the process. (screenshots)
-  
+
     <div style="text-align: center;">
         <img src="images/create_built-in_schema/create_material_processing_eln_step_12_13.png" alt="create built-in schema" width="800">
     </div>
@@ -217,7 +217,7 @@ Now, let's create an entry using the built-in *Material Processing ELN* schema f
     </div>
 
     - **samples:** Specify the samples that are created or used in the process. Continue by adding the connection of your process to the resulting sample entities. (screenshot)
-  
+
     <div style="text-align: center;">
         <img src="images/create_built-in_schema/create_material_processing_eln_step_18_19_20.png" alt="create built-in schema" width="800">
     </div>
@@ -260,7 +260,7 @@ Now, let's create an entry using the built-in *Material Processing ELN* schema f
 
     <div style="text-align: center;">
         <img src="images/create_built-in_schema/workflow_graph_2.png" alt="create built-in schema" width="400">
-    </div>    
+    </div>
 
 
 
@@ -300,17 +300,17 @@ Once all substances, samples, processes, and measurements are defined, you can i
     The **Workflow Graph** automatically updates and will look similar to the following
     <div style="text-align: center;">
         <img src="images/create_built-in_schema/interactive_work_flow.gif" alt="interactive workflow gif" width="400">
-    </div>  
+    </div>
 
 ## Exploring and Searching Entries in NOMAD’s ELN
 
 ??? example "Download the example file for this excercise"
-    We have prepared a compressed file for this task, which can be downloaded from this [link](https://github.com/FAIRmat-NFDI/FAIRmat-tutorial-16/raw/refs/heads/main/tutorial_16_materials/part_4_files/example_NOMAD_ELN.zip).
-    
+    [Download example_NOMAD_ELN.zip](https://github.com/glaidedata/glaide-tutorial-user-basic/raw/refs/heads/main/tutorial_16_materials/part_4_files/example_NOMAD_ELN.zip){:target="_blank" .md-button}
+
     The file contains multiple NOMAD ELN entries in `.json` format.
-    
+
     These entries have been created using the NOMAD ELN built-in schema, organized into folders, and categorized with custom tags.
-    
+
     You can drag and drop this file into a new upload in NOMAD to view its contents.
 
 Imagine you have created multiple entries of substances, samples, instruments, processes, and measurements, and you need to quickly find a specific experiment or material. Instead of manually searching through files, NOMAD’s ELN allows you to search, filter, and organize your entries—saving you time and effort.
@@ -318,14 +318,14 @@ Imagine you have created multiple entries of substances, samples, instruments, p
 ??? info "Organizing your ELN upload"
     NOMAD is a file-based system. You can access, organize, and download your files within each upload. You can also create folders to categorize entries into materials, samples, instruments, processes, and results, as well as upload additional documents, such as relevant PDFs.
 
-    !!! warning "If you plan to organize your entries into separate folders, do so before you reference them to each other. Moving them afterward may break the reference links." 
+    !!! warning "If you plan to organize your entries into separate folders, do so before you reference them to each other. Moving them afterward may break the reference links."
 
     You can follow these steps to organize your ELN entries:
 
-    1. Navigate to the **FILES** tab in your upload. This view functions like a file explorer, allowing you to view and manage files. 
+    1. Navigate to the **FILES** tab in your upload. This view functions like a file explorer, allowing you to view and manage files.
     <div style="text-align: center;">
     <img src="images/organization/files_explorer_in_NOMAD.png" alt="interactive workflow gif" width="400">
-    </div>  
+    </div>
 
     2. Add new folders and organize them according to your needs.
     <div style="text-align: center;">
@@ -340,7 +340,7 @@ Imagine you have created multiple entries of substances, samples, instruments, p
     4. Once all files are sorted, take a moment to review the structure. Here’s an example of an organized ELN
     <div style="text-align: center;">
         <img src="images/organization/after_organization.png" alt="interactive workflow gif" width="400">
-    </div>  
+    </div>
 
 **Searching your ELN entries**
 
@@ -354,14 +354,14 @@ To search for entries in your ELN, follow these steps:
 
     ![screenshot of step 2](images/organization/explore_ELN_step_2.png)
 
-    This will open NOMAD's **EXPLORE** page with a filter applied to display only the entries from your upload.  
+    This will open NOMAD's **EXPLORE** page with a filter applied to display only the entries from your upload.
 
     ![screenshot of NOMAD EXPLORE page wiht the filter applied](images/organization/explore_ELN_step_2r.png)
 
-On the **EXPLORE** page, you can use the filter options in the sidebar to refine your search, enter specific keywords in the search bar to find relevant entries, or create custom widgets to visualise your ELN data. 
+On the **EXPLORE** page, you can use the filter options in the sidebar to refine your search, enter specific keywords in the search bar to find relevant entries, or create custom widgets to visualise your ELN data.
 
 ??? info "Filtering entries in NOMAD"
-    NOMAD provides various filters that can be used to efficiently find your ELN entries, but the following two filters are particularlly effective: 
+    NOMAD provides various filters that can be used to efficiently find your ELN entries, but the following two filters are particularlly effective:
 
     - Filter by built-in schema used to create the entry.
 
@@ -379,7 +379,7 @@ Widgets allow you to customize your search interface to better suit your data ex
 
 ??? task "Create a custom widget for ELN sections and custom tags"
     To create a custom widget for filtering your ELN, follow these steps:
-    
+
     1. Click on the `+ TERMS` button to open the *Edit terms widget* menu.
 
     <div style="text-align: center;">

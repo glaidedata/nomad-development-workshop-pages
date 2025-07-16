@@ -1,33 +1,35 @@
 ## Inspecting a Custom ELN in NOMAD GUI
 
-In this part, we 
+In this part, we
 - Initially inspect an example custom ELN for polymer processing experiment in the NOMAD GUI together.
 - Then, review the main six guidlines needed to write custom ELN schemas together.
-- Finally, inspect the YAML file of the polymer processing example, and 
+- Finally, inspect the YAML file of the polymer processing example, and
 
 ??? example "Example: Inspecting a custom ELN for polymer processing in NOMAD GUI"
-    Now let's inspect a simple custom ELN for Polymer Processing together. You can find the **polymer_processing_schema.archive.yaml** file in [tutorial_16_materials/part_4_files](https://github.com/FAIRmat-NFDI/FAIRmat-tutorial-16/tree/main/tutorial_16_materials){:target="_blank"} or download it [here](https://github.com/FAIRmat-NFDI/FAIRmat-tutorial-16/blob/main/tutorial_16_materials/part_4_files/polymer_processing_schema.archive.yaml){:target="_blank"}. In order to see how it looks like in the NOMAD GUI, make a new upload, and drag and drop the *polymer_processing_schema.archive.yaml** file, so that NOMAD can process it. Then create a new entry, based on this schema (scrreenshots). 
+    [Download polymer_processing_schema.archive.yaml](https://github.com/glaidedata/glaide-tutorial-user-basic/blob/main/tutorial_16_materials/part_4_files/polymer_processing_schema.archive.yaml){:target="_blank" .md-button}
+
+    Let's inspect a simple custom ELN for Polymer Processing together. Make a new upload, and drag and drop the *polymer_processing_schema.archive.yaml** file, so that NOMAD can process it. Then create a new entry, based on this schema (scrreenshots).
     <div style="text-align: center;">
         <img src="images/upload_custom_schema_0_1_2_3.png" alt="upload custom schema create entry" width="800">
-    </div>    
+    </div>
     <div style="text-align: center;">
         <img src="images/upload_custom_schema_4_5_6.png" alt="upload custom schema create entry" width="800">
-    </div>       
+    </div>
     <div style="text-align: center;">
         <img src="images/upload_custom_schema_7.png" alt="upload custom schema create entry" width="800">
-    </div>     
+    </div>
 
     After this, you will be able to see the custom ELN, opened in the DATA tab. You can take some moment and inspect different tabs, e.g., **OVERVIEW** tab and **DATA** tab, the quantities and the subsections we have here.
     <div style="text-align: center;">
         <img src="images/polymer_processing_custom_eln.png" alt="custom polymer processing ELN entry" width="800">
-    </div>    
+    </div>
 
 ## Guidelines for Building a Custom ELN Schema
 
 To build a custom NOMAD ELN, you need to use the NOMAD metainfo schema language, primarily written in YAML. Your custom **schema file must have the ending extension** `.archive.yaml`
 
 ??? info "1. NOMAD's archive.yaml files start with the `definitions` keyword, and must have a `name`, and can have a `description`."
-    
+
     NOMAD syntax is:
     ```yaml
     definitions:
@@ -48,7 +50,7 @@ To build a custom NOMAD ELN, you need to use the NOMAD metainfo schema language,
     ```yaml
     definitions:
       name:
-      description: 
+      description:
 
       sections:
         My_first_section:
@@ -72,7 +74,7 @@ To build a custom NOMAD ELN, you need to use the NOMAD metainfo schema language,
           base_sections:
             - nomad.datamodel.data.EntryData
             - nomad.datamodel.metainfo.eln.Sample
-  
+
         My_second_section:
         My_third_section:
     ```
@@ -87,10 +89,10 @@ To build a custom NOMAD ELN, you need to use the NOMAD metainfo schema language,
       sections:
         My_first_section:
           base_sections: ['nomad.datamodel.data.EntryData', 'nomad.datamodel.metainfo.eln.Sample']
-  
+
         My_second_section:
-        My_third_section:          
-    ``` 
+        My_third_section:
+    ```
 
 ??? info "4. Each section can contain quantities, other sections, and subsections."
     Each section can contain a set of quantites that need to be captured by the ELN. The quantities represent the parameters of your measurement or processing conditions. In addition, sections **can also contain** subsections. When including subsections, you need to tell NOMAD the subsections you included are themselves a section. How? By including the keyword `sections:` in the next indented line (see bottom example). A list of editable quantities can be found [here](https://nomad-lab.eu/prod/v1/gui/dev/editquantity){:target="_blank"}.
@@ -113,9 +115,9 @@ To build a custom NOMAD ELN, you need to use the NOMAD metainfo schema language,
             My_first_subsection:
               section:
             My_second_subsection:
-              section:      
+              section:
         My_second_section:
-        My_third_section:        
+        My_third_section:
     ```
 
 
@@ -146,7 +148,7 @@ To build a custom NOMAD ELN, you need to use the NOMAD metainfo schema language,
               section:
 
         My_second_section:
-        My_third_section:          
+        My_third_section:
     ```
 
 ??? info "6. Section and quantities can have annotations"
@@ -156,7 +158,7 @@ To build a custom NOMAD ELN, you need to use the NOMAD metainfo schema language,
     definitions:
       name: My NOMAD ELN
       description: This is an electronic lab notebook schema that includes several sections.
-      
+
       sections:
         My_first_section:
           base_sections:
@@ -169,7 +171,7 @@ To build a custom NOMAD ELN, you need to use the NOMAD metainfo schema language,
               - unit: #For example, meters, amperes, or seconds
               m_annotations:
                 annotation_name:
-                  key1: value1  
+                  key1: value1
               sub_section:
                 My_first_subsection:
                   section:
@@ -179,12 +181,12 @@ To build a custom NOMAD ELN, you need to use the NOMAD metainfo schema language,
                   section:
 
         My_second_section:
-        My_third_section:    
+        My_third_section:
     ```
 
 
 ??? example "Example: Inspecting the YAML schema of the polymer processing ELN"
-    Now let's inspect the [YAML schema file](https://github.com/FAIRmat-NFDI/FAIRmat-tutorial-16/blob/main/tutorial_16_materials/part_4_files/polymer_processing_schema.archive.yaml){:target="_blank"} of the above custom Polymer Processing ELN together. We use vscode to show and edit this file.
+    [Open polymer_processing_schema.archive.yaml](https://github.com/glaidedata/glaide-tutorial-user-basic/blob/main/tutorial_16_materials/part_4_files/polymer_processing_schema.archive.yaml){:target="_blank" .md-button}
 
     Here we started with `definitions:`, we have a `name:`, and don't have a `description` (guideline 1). A schema is a section itself, therefore having the keyword `sections:` (guideline 4).
     <div style="text-align: center;">
@@ -214,7 +216,7 @@ To build a custom NOMAD ELN, you need to use the NOMAD metainfo schema language,
 
     ```yaml
     Name_gbu:
-      type: str  
+      type: str
       default: Experiment title
       m_annotations:
         eln:

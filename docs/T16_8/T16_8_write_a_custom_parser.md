@@ -3,20 +3,20 @@ It is very common to export measurement data into a tabular format such as `.csv
 Our objectives are:
 
 1. To upload our `.csv` or `.xlsx` data files onto NOMAD as **entries**, so that we can visualize and publish them and make it possible to get a DOI.
-2. Enhance our custom schema by making NOMAD parse the data within these files, and then visualize the data in plots that can be viewed in our customized ELN. 
+2. Enhance our custom schema by making NOMAD parse the data within these files, and then visualize the data in plots that can be viewed in our customized ELN.
 
 
 NOMAD offers a versatile tabular parser that can be configured to process tabular data with different representations:
 
 - **Column Mode:** each column contains an array of cells that we want to parse into one quantity. Example: current and voltage arrays to be plotted as x and y.
-  
+
 - **Row Mode**: each row contains a set of cells that we want to parse into a section, i.e., a set of quantities. Example: an inventory tabular data file (for substrates, precursors, or more) where each column represents a property and each row corresponds to one unit stored in the inventory.
 
 More details on the different representations of tabular data can be found in [NOMAD documentation on how to parse tabular data](https://nomad-lab.eu/prod/v1/staging/docs/howto/customization/tabular.html){:target="_blank"}.
 
 ## Steps to Utilize NOMAD's Tabular Parser for `.csv` Data
 
-We use an example `.csv` file, which is the output of an optical absorption instrument. You can find the **P3HT_optical.csv** file in [tutorial_16_materials/part_4_files](https://github.com/FAIRmat-NFDI/FAIRmat-tutorial-16/tree/main/tutorial_16_materials){:target="_blank"} or download it [here](https://github.com/FAIRmat-NFDI/FAIRmat-tutorial-16/blob/main/tutorial_16_materials/part_4_files/P3HT_optical.csv){:target="_blank"}. We open this file using Notepad and have a quick look:
+[Open P3HT_optical.csv](https://github.com/glaidedata/glaide-tutorial-user-basic/blob/main/tutorial_16_materials/part_4_files/P3HT_optical.csv){:target="_blank" .md-button}
 
 <div style="text-align: center;">
     <img src="images/notpad_p3ht_optical.png" alt="csv file view" width="300">
@@ -87,9 +87,9 @@ quantities:
 
 Remember, the syntax for this purpose was `m_annotations:`
 
-* **The `data_file` quantity:**  
+* **The `data_file` quantity:**
 
-The first one is to instruct NOMAD to allow for droping and selecting files in this quantity. Here we will use the following: 
+The first one is to instruct NOMAD to allow for droping and selecting files in this quantity. Here we will use the following:
 
 ```yaml
 eln:
@@ -131,11 +131,11 @@ m_annotations:
       - mapping_mode: column
         file_mode: current_entry
         sections:
-          - '#root'  
+          - '#root'
 ```
 
 
-* **The `wavelength` quantity:**  
+* **The `wavelength` quantity:**
 This quantitiy will accept values, that will be extracted by the tabular parser. Therefore the annotation will be:
 ```yaml
 m_annotations:
@@ -144,7 +144,7 @@ m_annotations:
 ```
 Note that the value for the `name` key **must** be exactly written as the **header of the column that we want to capture its values** and put in the `wavelength` quantity we defined in the schema.
 
-* **The `absorbance` quantity:**  
+* **The `absorbance` quantity:**
 ```yaml
 m_annotations:
   tabular:
@@ -170,8 +170,8 @@ Note that here, the graph object belongs to the `Optical_absorption` section def
 
 ### **Step 6 (optional): Adding a Free Text Field**
 
-If you only want to publish your data and graph, consider adding a short description.  
-To do this, select a free text field from [editable quantities](https://nomad-lab.eu/prod/v1/gui/dev/editquantity){:target="_blank"} and add it to your schema.  
+If you only want to publish your data and graph, consider adding a short description.
+To do this, select a free text field from [editable quantities](https://nomad-lab.eu/prod/v1/gui/dev/editquantity){:target="_blank"} and add it to your schema.
 
 For example:
 
@@ -183,7 +183,7 @@ info_about_data:
       component: RichTextEditQuantity
 ```
 
-Finally our custom schema file should look like the following. You can also find the **optical_absorptoion_plot_schema.archive.yaml** file in [tutorial_16_materials/part_4_files](https://github.com/FAIRmat-NFDI/FAIRmat-tutorial-16/tree/main/tutorial_16_materials){:target="_blank"} or download it [here](https://github.com/FAIRmat-NFDI/FAIRmat-tutorial-16/blob/main/tutorial_16_materials/part_4_files/optical_absorption_plot.archive.yaml){:target="_blank"}.
+Finally our custom schema file should look like the following:
 
 ```yaml
 definitions:
@@ -199,7 +199,7 @@ definitions:
           type: str
           m_annotations:
             eln:
-              component: RichTextEditQuantity          
+              component: RichTextEditQuantity
         data_file:
           type: str
           m_annotations:
@@ -238,29 +238,33 @@ definitions:
           title: Optical Spectrum
 ```
 
+[Download optical_absorption_plot.archive.yaml](https://github.com/glaidedata/glaide-tutorial-user-basic/blob/main/tutorial_16_materials/part_4_files/optical_absorption_plot.archive.yaml){:target="_blank" .md-button}
+
 ### **Step 7: Uploading the Schema File to NOMAD and Creating an Entry**
 
 Now that we have created the ELN schema file for parsing the optical absorption data file, let's put it to the test in the NOMAD GUI.
 
-??? example "Example: Adding Plot to the Polymer Processing custom schema (Steps)"
+??? example "Example: Adding a Plot to the Polymer Processing custom schema (Steps)"
 
-    Now, let's enhance our Polymer Processing schema to include the tabular parser and the plot. 
-    We already made the following custom schema  **polymer_processing_schema.archive.yaml**. You simply copy the snippet or download it [here](https://github.com/FAIRmat-NFDI/FAIRmat-tutorial-16/blob/main/tutorial_16_materials/part_4_files/polymer_processing_schema.archive.yaml){:target="_blank"}. 
+    Now, let's enhance our Polymer Processing schema to include the tabular parser and the plot.
+
+    [Download polymer_processing_schema.archive.yaml](https://github.com/glaidedata/glaide-tutorial-user-basic/blob/main/tutorial_16_materials/part_4_files/polymer_processing_schema.archive.yaml){:target="_blank" .md-button}
+
 
     ```yaml
     definitions:
       name: Processing and characterization of polymers thin-films, given by user (gbu)
       sections:
         Experiment_Information_gbu:
-          base_sections: 
+          base_sections:
             - nomad.datamodel.data.EntryData
           quantities:
             Name_gbu:
-              type: str  
+              type: str
               default: Experiment title
               m_annotations:
                 eln:
-                  component: StringEditQuantity 
+                  component: StringEditQuantity
             Researcher_gbu:
               type: str
               default: Name of the researcher who performed the experiment
@@ -323,7 +327,7 @@ Now that we have created the ELN schema file for parsing the optical absorption 
                               defaultDisplayUnit: milligram
                   Solvent_gbu:
                     section:
-                      base_sections: 
+                      base_sections:
                         - nomad.datamodel.data.EntryData
                       quantities:
                         substance_gbu:
@@ -342,7 +346,7 @@ Now that we have created the ELN schema file for parsing the optical absorption 
               section:
                 base_sections:
                   - nomad.datamodel.data.EntryData
-                  - nomad.datamodel.metainfo.eln.Process  
+                  - nomad.datamodel.metainfo.eln.Process
                 m_annotations:
                   eln:
                     overview: true
@@ -353,8 +357,9 @@ Now that we have created the ELN schema file for parsing the optical absorption 
        ```yaml
        Optical_absorption:
          section:
-       ```  
+       ```
       and then copy and paste everything else (starting from 'base_sections:'), one level indented with respect to `section:`. Optionally, we can benefit from a **more specialized** NOMAD base section `nomad.datamodel.metainfo.basesections.Measurement` instead of `nomad.datamodel.data.EntryData`. This gives us more functionalities than just making an entry.
 
+    OR
 
-    You can also find the **polymer_processing_and_optical_absorptoion_plot_schema.archive.yaml** file in [tutorial_16_materials/part_4_files](https://github.com/FAIRmat-NFDI/FAIRmat-tutorial-16/tree/main/tutorial_16_materials){:target="_blank"} or download it [here](https://github.com/FAIRmat-NFDI/FAIRmat-tutorial-16/blob/main/tutorial_16_materials/part_4_files/polymer_processing_tabular_parser_optical_absorption.archive.yaml){:target="_blank"}.
+    [Download polymer_processing_and_optical_absorptoion_plot_schema.archive.yaml](https://github.com/glaidedata/glaide-tutorial-user-basic/blob/main/tutorial_16_materials/part_4_files/polymer_processing_tabular_parser_optical_absorption.archive.yaml){:target="_blank" .md-button}
