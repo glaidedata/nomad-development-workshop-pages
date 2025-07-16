@@ -1,6 +1,6 @@
 # Explore Data in NOMAD
 
-The **EXPLORE** menu allows you to navigate and search through a vast amount of materials-science data. Currently, this menu offers several options for exploring data including:
+The **EXPLORE** menu allows you to navigate and search through a vast amount of materials-science data via "NOMAD APPs". Currently, the following APPs are available on the public repository:
 
 - **Entries**: Search entries across all domains.
 - **Theory**: Focus on calculations and materials data derived from theoretical models.
@@ -12,13 +12,13 @@ The **EXPLORE** menu allows you to navigate and search through a vast amount of 
     <img src="images/explore_menu2.png" alt="Explore Menu" width="200">
 </div>
 
-Here we focus on searching data in NOMAD using the **Entries** option within the **EXPLORE** menu. You will see an overview of **SOLAR CELLS**.
+Here we will first focus on searching data in NOMAD using the **Entries** option within the **EXPLORE** menu. We will then also explore the **SOLAR CELLS** App.
 
 ---
 
 ## Exploring Entries in NOMAD
 
-To explore NOMAD, go to **EXPLORE** → **Entries**.
+To explore all entries, go to **EXPLORE** → **Entries**.
 
 The **Entries** page shows the latest uploaded data. Public entries are accessible without login, while logging in grants access to private and shared entries.
 
@@ -28,10 +28,10 @@ The **Entries** page shows the latest uploaded data. Public entries are accessib
 
 NOMAD supports advanced searches based on:
 
-- **Material** – Elements, formula, or structure.  
-- **Method** – Scientific techniques (e.g., DFT).  
-- **Properties** – Band structure, conductivity, etc.  
-- **Use Cases** – Application-specific searches (e.g., Solar Cells).  
+- **Material** – Elements, formula, or structure.
+- **Method** – Scientific techniques (e.g., DFT).
+- **Properties** – Band structure, conductivity, etc.
+- **Use Cases** – Application-specific searches (e.g., Solar Cells).
 - **Origin** – Filter by uploader, date, dataset, or tags.
 
 <div style="text-align: center;">
@@ -45,7 +45,7 @@ Filters refine searches dynamically. Example:
 - **Method Filter**: Find **BN** simulations using **VASP**.
 - **Properties Filter**: Search for entries with **band structure** data.
 
-You can pin frequently used filters using **(+)** for a customized search interface.
+To customize the search interface during your session, you can extract filters from the left-hand filter bar and pin them to your dashboard using the **(+)** icon.
 
 <div style="text-align: center;">
     <img src="images/add_filters_to_search_interface.gif" alt="Add Filters to the Search Interface" width="800">
@@ -130,10 +130,10 @@ To gain insights into this question, we can utilize NOMAD's widgets to explore r
 </div>
 
 
-### Interpreting Results  
-- Interactive scatter plots reveal relationships between **ETLs, HTLs, and performance**.  
-- Hover over data points for details.  
-- Click entries for **full metadata, dataset links, and publication info**.  
+### Interpreting Results
+- Interactive scatter plots reveal relationships between **ETLs, HTLs, and performance**.
+- Hover over data points for details.
+- Click entries for **full metadata, dataset links, and publication info**.
 
 Custom widgets provide a **powerful way** to explore NOMAD data and answer research questions efficiently.
 
@@ -147,34 +147,34 @@ Let’s explore how **hole transport layer (HTL) materials** affect efficiency i
     <img src="images/solar_cell_device.png" alt="Solar Cell Device" width="300">
 </div>
 
-### Step 1: Open the Perovskite Solar Cell Database Dashboard  
-- Navigate to **EXPLORE** → **Solar Cells**.  
+### Step 1: Open the Perovskite Solar Cell Database Dashboard
+- Navigate to **EXPLORE** → **Solar Cells**.
 - This dashboard provides predefined filters and plots optimized for solar cell research.
 
 <div style="text-align: center;">
     <img src="images/solar_cells_dashboard.png" alt="Solar Cells Dashboard" width="800">
 </div>
 
-### Step 2: Understand the Dashboard  
+### Step 2: Understand the Dashboard
 The dashboard includes:
-- **Periodic Table** – Filter materials by elements.  
-- **Scatter Plots** – Explore efficiency vs. **Voc**, **Jsc**, and **device architecture**.  
-- **Histograms** – Analyze bandgap and illumination intensity.  
-- **TERMS Plots** – Categorize **fabrication method**, **device stack**, **ETL**, and **HTL** materials.  
+- **Periodic Table** – Filter materials by elements.
+- **Scatter Plots** – Explore efficiency vs. **Voc**, **Jsc**, and **device architecture**.
+- **Histograms** – Analyze bandgap and illumination intensity.
+- **TERMS Plots** – Categorize **fabrication method**, **device stack**, **ETL**, and **HTL** materials.
 
-### Step 3: Apply Filters  
-1. Select **Sn** in the **Periodic Table** to filter Sn-based absorbers.  
-2. Set **ETL = C60** in the **TERMS** plot. (~400 entries remain)  
+### Step 3: Apply Filters
+1. Select **Sn** in the **Periodic Table** to filter Sn-based absorbers.
+2. Set **ETL = C60** in the **TERMS** plot. (~400 entries remain)
 3. Narrow results further using:
-   - **Bandgap slider** (e.g., >1.3 eV).  
-   - **Device architecture scatter plot** (e.g., pin).  
+   - **Bandgap slider** (e.g., >1.3 eV).
+   - **Device architecture scatter plot** (e.g., select pin). (Note: You will need to find this filter in the left-hand bar or add a term filter onto your dashboard).
 
-### Step 4: Customize Widgets  
-- Click the **pen icon** on any widget to modify its plotted quantities, color mapping, or units.  
+### Step 4: Customize Widgets
+- Click the **pen icon** on any widget to modify its plotted quantities, color mapping, or units.
 
-### Step 5: Explore and Analyze Results  
-- **Hover over scatter plots** to inspect data points.  
-- **Click entries** for full metadata, dataset links, and further analysis.  
+### Step 5: Explore and Analyze Results
+- **Hover over scatter plots** to inspect data points.
+- **Click entries** for full metadata, dataset links, and further analysis.
 
 <div style="text-align: center;">
     <img src="images/sn_based_solar_cells_example.gif" alt="Sn-based Solar Cell example" width="800">
