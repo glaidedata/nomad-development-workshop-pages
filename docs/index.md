@@ -9,10 +9,10 @@ In this tutorial, you'll learn how to use **NOMAD** to manage and organize your 
 - 📥 [**Upload raw data files**](./T16_3/T16_3_upload_raw_data_files.md) and inspect the extracted data structured in NOMAD’s data model.
 - 🗂️ [**Create a dataset**](./T16_5/T16_5_create_a_dataset.md) and simulate publishing it with a DOI.
 
-**Advanced Topics:**
+<!-- **Advanced Topics:** -->
 
-- 🛠️ [**Create custom ELN templates**](./T16_7/T16_7_create_custom_eln_templates.md).
-- 🛠️ [**Use the tabular parser**](./T16_8/T16_8_write_a_custom_parser.md) for tabular data, such as `.csv` or `.xls` files.
+<!-- - 🛠️ [**Create custom ELN templates**](./T16_7/T16_7_create_custom_eln_templates.md).
+- 🛠️ [**Use the tabular parser**](./T16_8/T16_8_write_a_custom_parser.md) for tabular data, such as `.csv` or `.xls` files. -->
 
 ## At the end of this tutorial, you will be able to:
 - Efficiently **search, filter, and explore data** in NOMAD.
