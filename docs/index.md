@@ -23,7 +23,7 @@ In this tutorial, you'll learn how to use **NOMAD** to manage and organize your 
 
 ## ⚙️ Tutorial Preparation
 
-### Create a NOMAD account at the [NOMAD Central Deployment](https://nomad-lab.eu/prod/v1/gui/about/information){:target="\_blank"}
+### Create a NOMAD account at the [NOMAD Central Deployment](https://nomad-lab.eu/prod/v1/gui/search/entries){:target="\_blank"}
 
 Click `LOGIN/REGISTER` at the top right.
 
