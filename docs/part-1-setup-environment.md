@@ -170,18 +170,18 @@ If all checks pass, your system is ready for **NOMAD distro-dev**. If something 
 
 | Done | Tool | Command | Expected Output |
 | ----- | ----- | ----- | ----- |
-| - [ ] | **WSL** | `wsl --status` | Shows version info, includes `WSL version: 2` |
-| - [ ] |  | `wsl --list --verbose` | `Ubuntu` (or another distro) listed |
-| - [ ] | **Docker** | `docker --version` | Docker version (e.g., `Docker version 27…`) |
-| - [ ] |  | `docker run hello-world` | Message “Hello from Docker!” |
-| - [ ] | **Git** | `git --version` | Version string (e.g., `git version 2.43.0`) |
-| - [ ] | **Python** | `python3 --version` *(Ubuntu)* | `3.x.x` |
-| - [ ] |  | `python --version` *(Windows)* | `3.x.x` (ensure Long Paths enabled in Windows) |
-| - [ ] | **Node.js** | `node -v` | Node version (e.g., `v20.11.1`) |
-| - [ ] | **npm** | `npm -v` | npm version (e.g., `10.5.2`) |
-| - [ ] | **Yarn** | `yarn --version` | Yarn version (e.g., `1.22.19` or `4.x`) |
-| - [ ] | **uv** | `uv --version` | uv version |
-| - [ ] | **VS Code** | `code .` | VS Code opens (WSL mode shows **WSL: Ubuntu**) |
+| ☐ | **WSL** | `wsl --status` | Shows version info, includes `WSL version: 2` |
+| ☐ |  | `wsl --list --verbose` | `Ubuntu` (or another distro) listed |
+| ☐ | **Docker** | `docker --version` | Docker version (e.g., `Docker version 27…`) |
+| ☐ |  | `docker run hello-world` | Message “Hello from Docker!” |
+| ☐ | **Git** | `git --version` | Version string (e.g., `git version 2.43.0`) |
+| ☐ | **Python** | `python3 --version` *(Ubuntu)* | `3.x.x` |
+| ☐ |  | `python --version` *(Windows)* | `3.x.x` (ensure Long Paths enabled in Windows) |
+| ☐ | **Node.js** | `node -v` | Node version (e.g., `v20.11.1`) |
+| ☐ | **npm** | `npm -v` | npm version (e.g., `10.5.2`) |
+| ☐ | **Yarn** | `yarn --version` | Yarn version (e.g., `1.22.19` or `4.x`) |
+| ☐ | **uv** | `uv --version` | uv version |
+| ☐ | **VS Code** | `code .` | VS Code opens (WSL mode shows **WSL: Ubuntu**) |
 
 ---
 
