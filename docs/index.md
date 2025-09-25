@@ -1,31 +1,63 @@
-# Tutorial: User Basics&mdash;Getting started with NOMAD for research data management
+# **Workshop Structure: NOMAD Development & Plugins**
 
-In this tutorial, you'll learn how to use **NOMAD** to manage and organize your research data. Whether you are working with computational or experimental data, NOMAD's graphical user interface makes it easy to upload, share, explore, and analyze your data. We will also focus on using NOMAD to improve collaboration on your research projects and to ensure that your data align with the FAIR data principles (Findable, Accessible, Interoperable, and Reusable).
+## **[Prerequisites](#prerequisites)**
 
-## What you'll do:
+* **Admin rights:** Users must have administrator rights on their computer to install software and change system settings.
 
-- 🌐 [**Explore NOMAD entries**](./T16_2/T16_2_explore_data_records.md) and gain insights from the rich metadata structured in NOMAD's data model.
-- 📖 [**Document your research**](./T16_6/T16_6_document_your_research.md) using NOMAD’s built-in ELN templates.
-- 📥 [**Upload raw data files**](./T16_3/T16_3_upload_raw_data_files.md) and inspect the extracted data structured in NOMAD’s data model.
-- 🗂️ [**Create a dataset**](./T16_5/T16_5_create_a_dataset.md) and simulate publishing it with a DOI.
+* **Software to be installed:** Docker Desktop, WSL2, Python, Node.js, Yarn, VSCode
 
-<!-- **Advanced Topics:** -->
+* **Accounts:** GitHub account, central NOMAD account (www.nomad-lab.eu)
 
-<!-- - 🛠️ [**Create custom ELN templates**](./T16_7/T16_7_create_custom_eln_templates.md).
-- 🛠️ [**Use the tabular parser**](./T16_8/T16_8_write_a_custom_parser.md) for tabular data, such as `.csv` or `.xls` files. -->
+* **Notes:** Check available disk space, memory, and internet connection
 
-## At the end of this tutorial, you will be able to:
-- Efficiently **search, filter, and explore data** in NOMAD.
-- Manage, upload, and share your research data using NOMAD.
-- Publish your datasets with DOIs to ensure **accessibility and reusability**.
-- Use the **NOMAD ELN functionality** to document your research.
-- Understand the essentials of creating custom templates and parsers for your research data.
+## **[Introduction](#introduction)** 
 
-## ⚙️ Tutorial Preparation
+* Welcome & goals of the workshop
 
-### Create a NOMAD account at the [NOMAD Central Deployment](https://nomad-lab.eu/prod/v1/gui/search/entries){:target="\_blank"}
+* Quick participant check (who already uses NOMAD, Git, Docker?)
 
-Click `LOGIN/REGISTER` at the top right.
+* Present prerequisites & confirm everyone is set up
 
-!!! warning "Attention"
-    This is a public database for sharing your research data. For day to day usage, you may want to use your institute's NOMAD Oasis Installation, depending on your group's research data management protocols.
+## **[Part 1: Setup & Environment](#part-1-setup--environment)** 
+
+* **Topic:** Install NOMAD Distro Dev on Windows
+
+* **Method:** Live demo + guided installation by participants
+
+* **Output:** Everyone has a running local NOMAD instance
+
+## **[Part 2: Developing NOMAD Plugins](#part-2-developing-nomad-plugins)**
+
+* **Topic:** Install, activate, and modify NOMAD plugins.
+
+* **Method:** Walk through the structure of a plugin, add one to the dev environment, then make and test a small code change using logs, CLI tests, and the GUI.
+
+* **Output:** Participants understand plugin anatomy, can install and activate plugins, and are able to implement and validate code changes locally.
+
+## **[Part 3: Collaborative Development with Git and GitHub](#part-3-collaborative-development-with-git-and-github)** 
+
+* **Topic:** Working with Git & GitHub
+
+* **Method:** Branch → commit → push → pull request → merge
+
+* **Output:** Participants contribute a change to a shared repo
+
+## **[Part 4: Writing and Publishing a NOMAD Oasis Image (with Plugins)](#part-4-writing-and-publishing-a-nomad-oasis-image-with-plugins)** 
+
+* **Topic:** Write new NOMAD Oasis image
+
+* **Method:** Build Docker image with plugin, run locally, optionally deploy on server
+
+* **Output:** Working custom NOMAD Oasis instance with plugin
+
+## **[Wrap-Up & Q&A](#wrap-up--qa)** 
+
+* Recap main learning points
+
+* Common pitfalls & troubleshooting tips
+
+* Resources (docs, GitHub, community channels)
+
+* Open floor for participant questions
+
+---
