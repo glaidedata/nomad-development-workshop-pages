@@ -203,6 +203,7 @@ WSL2 (Windows Subsystem for Linux) provides a Linux environment on Windows.
 ```powershell
 wsl --install
 ```
+
 - Installs WSL and the default Linux distribution (Ubuntu).
 - To explicitly install Ubuntu:
 ```powershell
