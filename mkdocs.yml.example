@@ -1,0 +1,12 @@
+site_name: NOMAD Development & Plugins Workshop
+nav:
+  - Home: index.md
+  - Introduction: introduction.md
+  - Part 1: part-1-setup-environment.md
+  - NOMAD Dev Distribution: nomad-dev-distribution.md
+  - Part 2: part-2-developing-plugins.md
+  - Part 3: part-3-collaborative-dev.md
+  - Part 4: part-4-oasis-image.md
+  - Wrap-Up & Q&A: wrap-up.md
+theme:
+  name: material

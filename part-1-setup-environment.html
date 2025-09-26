@@ -1,0 +1,1693 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Glaide Data Development Workshop for NOMAD Oasis Maintainers and Developers
+">
+      
+      
+        <meta name="author" content="Galide Data GmbH">
+      
+      
+      <link rel="icon" href="assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-8.1.1">
+    
+    
+      
+        <title>Part 1 - NOMAD Development Workshop</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.23b6d78a.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,400i,700%7C&display=fallback">
+        <style>:root{--md-text-font:"Titillium Web";--md-code-font:""}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="#2a4cdf" data-md-color-accent="#008a67">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#part-1-setup-environment" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://www.glaidedata.com/" title="NOMAD Development Workshop" class="md-header__button md-logo" aria-label="NOMAD Development Workshop" data-md-component="logo">
+      
+  <img src="assets/glaide_logo_long_white.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            NOMAD Development Workshop
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Part 1
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/glaidedata/nomad-development-workshop-pages" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://www.glaidedata.com/" title="NOMAD Development Workshop" class="md-nav__button md-logo" aria-label="NOMAD Development Workshop" data-md-component="logo">
+      
+  <img src="assets/glaide_logo_long_white.png" alt="logo">
+
+    </a>
+    NOMAD Development Workshop
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/glaidedata/nomad-development-workshop-pages" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="introduction.html" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Part 1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="part-1-setup-environment.html" class="md-nav__link md-nav__link--active">
+        Part 1
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation-paths" class="md-nav__link">
+    Installation Paths
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checking-software-requirements" class="md-nav__link">
+    Checking Software Requirements
+  </a>
+  
+    <nav class="md-nav" aria-label="Checking Software Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-check-wsl" class="md-nav__link">
+    1) Check WSL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-check-docker-desktop" class="md-nav__link">
+    2) Check Docker Desktop
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-check-git" class="md-nav__link">
+    3) Check Git
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-check-python" class="md-nav__link">
+    4) Check Python
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-check-nodejs-npm" class="md-nav__link">
+    5) Check Node.js &amp; npm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-check-yarn" class="md-nav__link">
+    6) Check Yarn
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-check-uv" class="md-nav__link">
+    7) Check uv
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-check-vs-code-integration" class="md-nav__link">
+    8) Check VS Code Integration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system-check-quick-checklist" class="md-nav__link">
+    System Check: Quick Checklist
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-guide" class="md-nav__link">
+    Installation Guide
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-install-wsl2" class="md-nav__link">
+    1) Install WSL2
+  </a>
+  
+    <nav class="md-nav" aria-label="1) Install WSL2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-enable-wsl-run-as-administrator" class="md-nav__link">
+    1.1 Enable WSL (run as Administrator)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-verify-wsl-installation" class="md-nav__link">
+    1.2 Verify WSL installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-launch-ubuntu" class="md-nav__link">
+    1.3 Launch Ubuntu
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-install-docker-desktop" class="md-nav__link">
+    2) Install Docker Desktop
+  </a>
+  
+    <nav class="md-nav" aria-label="2) Install Docker Desktop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-download-install-requires-administrator" class="md-nav__link">
+    2.1 Download &amp; install (requires Administrator)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-verify-docker-windows-side" class="md-nav__link">
+    2.2 Verify Docker (Windows side)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-verify-docker-ubuntuwsl-side" class="md-nav__link">
+    2.3 Verify Docker (Ubuntu/WSL side)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-ensure-wsl-integration-is-enabled" class="md-nav__link">
+    2.4 Ensure WSL integration is enabled
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-install-other-developer-tools" class="md-nav__link">
+    3) Install Other Developer Tools
+  </a>
+  
+    <nav class="md-nav" aria-label="3) Install Other Developer Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-git" class="md-nav__link">
+    3.1 Git
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-python" class="md-nav__link">
+    3.2 Python
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-uv-fast-python-package-manager" class="md-nav__link">
+    3.3 uv (fast Python package manager)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-nodejs-npm" class="md-nav__link">
+    3.4 Node.js &amp; npm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-yarn" class="md-nav__link">
+    3.5 Yarn
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-visual-studio-code" class="md-nav__link">
+    3.6 Visual Studio Code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-optional-quick-path-verification-sanity-check" class="md-nav__link">
+    4) Optional: Quick PATH Verification (sanity check)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ready-for-nomad-distro-dev" class="md-nav__link">
+    ✅ Ready for NOMAD distro-dev
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nomad-dev-distribution" class="md-nav__link">
+    NOMAD Dev Distribution
+  </a>
+  
+    <nav class="md-nav" aria-label="NOMAD Dev Distribution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#benefits" class="md-nav__link">
+    Benefits
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-steps" class="md-nav__link">
+    Installation Steps
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-to-day-development" class="md-nav__link">
+    Day-to-Day Development
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keeping-your-fork-up-to-date" class="md-nav__link">
+    Keeping Your Fork Up to Date
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    Common Issues
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    ✅ Summary
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part-2-developing-plugins.html" class="md-nav__link">
+        Part 2
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part-3-collaborative-dev.html" class="md-nav__link">
+        Part 3
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part-4-oasis-image.html" class="md-nav__link">
+        Part 4
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="wrap-up.html" class="md-nav__link">
+        Wrap-Up & Q&A
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation-paths" class="md-nav__link">
+    Installation Paths
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checking-software-requirements" class="md-nav__link">
+    Checking Software Requirements
+  </a>
+  
+    <nav class="md-nav" aria-label="Checking Software Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-check-wsl" class="md-nav__link">
+    1) Check WSL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-check-docker-desktop" class="md-nav__link">
+    2) Check Docker Desktop
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-check-git" class="md-nav__link">
+    3) Check Git
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-check-python" class="md-nav__link">
+    4) Check Python
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-check-nodejs-npm" class="md-nav__link">
+    5) Check Node.js &amp; npm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-check-yarn" class="md-nav__link">
+    6) Check Yarn
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-check-uv" class="md-nav__link">
+    7) Check uv
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-check-vs-code-integration" class="md-nav__link">
+    8) Check VS Code Integration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system-check-quick-checklist" class="md-nav__link">
+    System Check: Quick Checklist
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-guide" class="md-nav__link">
+    Installation Guide
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-install-wsl2" class="md-nav__link">
+    1) Install WSL2
+  </a>
+  
+    <nav class="md-nav" aria-label="1) Install WSL2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-enable-wsl-run-as-administrator" class="md-nav__link">
+    1.1 Enable WSL (run as Administrator)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-verify-wsl-installation" class="md-nav__link">
+    1.2 Verify WSL installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-launch-ubuntu" class="md-nav__link">
+    1.3 Launch Ubuntu
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-install-docker-desktop" class="md-nav__link">
+    2) Install Docker Desktop
+  </a>
+  
+    <nav class="md-nav" aria-label="2) Install Docker Desktop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-download-install-requires-administrator" class="md-nav__link">
+    2.1 Download &amp; install (requires Administrator)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-verify-docker-windows-side" class="md-nav__link">
+    2.2 Verify Docker (Windows side)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-verify-docker-ubuntuwsl-side" class="md-nav__link">
+    2.3 Verify Docker (Ubuntu/WSL side)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-ensure-wsl-integration-is-enabled" class="md-nav__link">
+    2.4 Ensure WSL integration is enabled
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-install-other-developer-tools" class="md-nav__link">
+    3) Install Other Developer Tools
+  </a>
+  
+    <nav class="md-nav" aria-label="3) Install Other Developer Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-git" class="md-nav__link">
+    3.1 Git
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-python" class="md-nav__link">
+    3.2 Python
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-uv-fast-python-package-manager" class="md-nav__link">
+    3.3 uv (fast Python package manager)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-nodejs-npm" class="md-nav__link">
+    3.4 Node.js &amp; npm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-yarn" class="md-nav__link">
+    3.5 Yarn
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-visual-studio-code" class="md-nav__link">
+    3.6 Visual Studio Code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-optional-quick-path-verification-sanity-check" class="md-nav__link">
+    4) Optional: Quick PATH Verification (sanity check)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ready-for-nomad-distro-dev" class="md-nav__link">
+    ✅ Ready for NOMAD distro-dev
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nomad-dev-distribution" class="md-nav__link">
+    NOMAD Dev Distribution
+  </a>
+  
+    <nav class="md-nav" aria-label="NOMAD Dev Distribution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#benefits" class="md-nav__link">
+    Benefits
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-steps" class="md-nav__link">
+    Installation Steps
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#day-to-day-development" class="md-nav__link">
+    Day-to-Day Development
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keeping-your-fork-up-to-date" class="md-nav__link">
+    Keeping Your Fork Up to Date
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    Common Issues
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    ✅ Summary
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+<h1 id="part-1-setup-environment">Part 1: Setup &amp; Environment<a class="headerlink" href="#part-1-setup-environment" title="Permanent link">&para;</a></h1>
+<h2 id="installation-paths">Installation Paths<a class="headerlink" href="#installation-paths" title="Permanent link">&para;</a></h2>
+<p>There are two ways to set up NOMAD development on Windows:</p>
+<ul>
+<li><strong>Path A (recommended):</strong> Use <strong>WSL2 (Windows Subsystem for Linux)</strong> with Ubuntu
+  → Provides a Linux environment close to production, fewer path and dependency issues. Could be more stable since most NOMAD developer run and test their developments in Linux.</li>
+<li><strong>Path B (alternative):</strong> Install and run everything <strong>directly in Windows</strong>
+  → Simpler if IT restrictions make WSL/Docker integration difficult, but can run into Windows-specific issues.</li>
+</ul>
+<hr />
+<h2 id="checking-software-requirements">Checking Software Requirements<a class="headerlink" href="#checking-software-requirements" title="Permanent link">&para;</a></h2>
+<p>Before we start with NOMAD distro-dev, let’s verify that all required tools are installed and working.
+ Run the following checks in <strong>Windows Terminal</strong> (use <strong>PowerShell</strong> and/or <strong>Ubuntu (WSL)</strong> tabs depending on your chosen path). Type <code>wsl</code> in PoweShell to start WSL2.</p>
+<hr />
+<h3 id="1-check-wsl">1) Check WSL<a class="headerlink" href="#1-check-wsl" title="Permanent link">&para;</a></h3>
+<p><strong>PowerShell:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>wsl --status
+</code></pre></div>
+<ul>
+<li>
+<p>✅ Installed → shows version info (should include <code>WSL version: 2</code>)</p>
+</li>
+<li>
+<p>❌ Not installed → IT must install WSL (admin rights)</p>
+</li>
+</ul>
+<p><strong>PowerShell (list distros):</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="go">wsl --list --verbose</span>
+</code></pre></div>
+<ul>
+<li>
+<p>✅ <code>Ubuntu</code> (or another distro) listed</p>
+</li>
+<li>
+<p>❌ Missing → install with:</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="go">wsl --install -d Ubuntu</span>
+</code></pre></div>
+<hr />
+<h3 id="2-check-docker-desktop">2) Check Docker Desktop<a class="headerlink" href="#2-check-docker-desktop" title="Permanent link">&para;</a></h3>
+<p><strong>PowerShell:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">docker</span> <span class="o">--</span><span class="n">version</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">docker</span> <span class="n">run</span> <span class="n">hello</span><span class="o">-</span><span class="n">world</span>
+</code></pre></div>
+<ul>
+<li>
+<p>✅ Prints Docker version and shows “Hello from Docker!”</p>
+</li>
+<li>
+<p>❌ Error → Docker Desktop not installed or not running</p>
+</li>
+</ul>
+<p><strong>If you use Path A (WSL), also check inside Ubuntu:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="go">docker --version</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="go">docker run hello-world</span>
+</code></pre></div>
+<ul>
+<li>❌ If daemon not reachable → enable <strong>Ubuntu</strong> under Docker Desktop → <strong>Settings → Resources → WSL integration</strong>, then retry</li>
+</ul>
+<hr />
+<h3 id="3-check-git">3) Check Git<a class="headerlink" href="#3-check-git" title="Permanent link">&para;</a></h3>
+<p><strong>Ubuntu (Path A):</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="go">git --version</span>
+</code></pre></div>
+<p><strong>Windows (Path B):</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="go">git --version</span>
+</code></pre></div>
+<ul>
+<li>✅ Returns a version (e.g., <code>git version 2.x</code>)</li>
+</ul>
+<hr />
+<h3 id="4-check-python">4) Check Python<a class="headerlink" href="#4-check-python" title="Permanent link">&para;</a></h3>
+<p><strong>Ubuntu (Path A):</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="go">python3 --version</span>
+</code></pre></div>
+<p><strong>Windows (Path B):</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="go">python --version</span>
+</code></pre></div>
+<ul>
+<li>
+<p>✅ Returns <code>3.x.x</code></p>
+</li>
+<li>
+<p>⚠️ On Windows, ensure <strong>Long Paths</strong> are enabled if you’ll install lots of Python deps</p>
+</li>
+</ul>
+<hr />
+<h3 id="5-check-nodejs-npm">5) Check Node.js &amp; npm<a class="headerlink" href="#5-check-nodejs-npm" title="Permanent link">&para;</a></h3>
+<p><strong>Ubuntu or Windows (your path):</strong></p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="go">node -v</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="go">npm -v</span>
+</code></pre></div>
+* ✅ Both return versions (e.g., <code>v20.x</code>, <code>10.x</code>)</p>
+<hr />
+<h3 id="6-check-yarn">6) Check Yarn<a class="headerlink" href="#6-check-yarn" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="go">yarn --version</span>
+</code></pre></div>
+<ul>
+<li>✅ Returns a version (e.g., <code>1.22.x</code> or <code>4.x</code>)</li>
+</ul>
+<hr />
+<h3 id="7-check-uv">7) Check uv<a class="headerlink" href="#7-check-uv" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="go">uv --version</span>
+</code></pre></div>
+<ul>
+<li>✅ Returns a version</li>
+</ul>
+<hr />
+<h3 id="8-check-vs-code-integration">8) Check VS Code Integration<a class="headerlink" href="#8-check-vs-code-integration" title="Permanent link">&para;</a></h3>
+<p><strong>Ubuntu (Path A):</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="go">code .</span>
+</code></pre></div>
+<ul>
+<li>
+<p>✅ VS Code opens with green status bar: <strong>WSL: Ubuntu</strong></p>
+</li>
+<li>
+<p>❌ If <code>code</code> not found → in VS Code (Windows) run <strong>Shell Command: Install 'code' command in PATH</strong> from the Command Palette, then retry</p>
+</li>
+</ul>
+<p><strong>Windows (Path B):</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="go">code .</span>
+</code></pre></div>
+<ul>
+<li>✅ VS Code opens in the current folder</li>
+</ul>
+<hr />
+<p>If all checks pass, your system is ready for <strong>NOMAD distro-dev</strong>. If something fails, we’ll fix it before moving on.</p>
+<hr />
+<h3 id="system-check-quick-checklist">System Check: Quick Checklist<a class="headerlink" href="#system-check-quick-checklist" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Done</th>
+<th>Tool</th>
+<th>Command</th>
+<th>Expected Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>☐</td>
+<td><strong>WSL</strong></td>
+<td><code>wsl --status</code></td>
+<td>Shows version info, includes <code>WSL version: 2</code></td>
+</tr>
+<tr>
+<td>☐</td>
+<td></td>
+<td><code>wsl --list --verbose</code></td>
+<td><code>Ubuntu</code> (or another distro) listed</td>
+</tr>
+<tr>
+<td>☐</td>
+<td><strong>Docker</strong></td>
+<td><code>docker --version</code></td>
+<td>Docker version (e.g., <code>Docker version 27…</code>)</td>
+</tr>
+<tr>
+<td>☐</td>
+<td></td>
+<td><code>docker run hello-world</code></td>
+<td>Message “Hello from Docker!”</td>
+</tr>
+<tr>
+<td>☐</td>
+<td><strong>Git</strong></td>
+<td><code>git --version</code></td>
+<td>Version string (e.g., <code>git version 2.43.0</code>)</td>
+</tr>
+<tr>
+<td>☐</td>
+<td><strong>Python</strong></td>
+<td><code>python3 --version</code> <em>(Ubuntu)</em></td>
+<td><code>3.x.x</code></td>
+</tr>
+<tr>
+<td>☐</td>
+<td></td>
+<td><code>python --version</code> <em>(Windows)</em></td>
+<td><code>3.x.x</code> (ensure Long Paths enabled in Windows)</td>
+</tr>
+<tr>
+<td>☐</td>
+<td><strong>Node.js</strong></td>
+<td><code>node -v</code></td>
+<td>Node version (e.g., <code>v20.11.1</code>)</td>
+</tr>
+<tr>
+<td>☐</td>
+<td><strong>npm</strong></td>
+<td><code>npm -v</code></td>
+<td>npm version (e.g., <code>10.5.2</code>)</td>
+</tr>
+<tr>
+<td>☐</td>
+<td><strong>Yarn</strong></td>
+<td><code>yarn --version</code></td>
+<td>Yarn version (e.g., <code>1.22.19</code> or <code>4.x</code>)</td>
+</tr>
+<tr>
+<td>☐</td>
+<td><strong>uv</strong></td>
+<td><code>uv --version</code></td>
+<td>uv version</td>
+</tr>
+<tr>
+<td>☐</td>
+<td><strong>VS Code</strong></td>
+<td><code>code .</code></td>
+<td>VS Code opens (WSL mode shows <strong>WSL: Ubuntu</strong>)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="installation-guide">Installation Guide<a class="headerlink" href="#installation-guide" title="Permanent link">&para;</a></h2>
+<p>This guide lists the tools required for NOMAD development on Windows in the <strong>recommended order of installation</strong>:</p>
+<ol>
+<li><strong>WSL2</strong></li>
+<li><strong>Docker Desktop</strong></li>
+<li><strong>Other developer tools</strong> (Git, Python, uv, Node.js, Yarn, VS Code)</li>
+</ol>
+<hr />
+<h3 id="1-install-wsl2">1) Install WSL2<a class="headerlink" href="#1-install-wsl2" title="Permanent link">&para;</a></h3>
+<p>WSL2 (Windows Subsystem for Linux) provides a Linux environment on Windows.</p>
+<h4 id="11-enable-wsl-run-as-administrator">1.1 Enable WSL (run as Administrator)<a class="headerlink" href="#11-enable-wsl-run-as-administrator" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">wsl</span> <span class="p">-</span><span class="n">-install</span>
+</code></pre></div>
+<ul>
+<li>Installs WSL and the default Linux distribution (Ubuntu).</li>
+<li>To explicitly install Ubuntu:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">wsl</span> <span class="p">-</span><span class="n">-install</span> <span class="n">-d</span> <span class="n">Ubuntu</span>
+</code></pre></div></li>
+</ul>
+<p>If WSL is already installed, ensure you’re on WSL 2:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">wsl</span> <span class="p">-</span><span class="n">-set-default-version</span> <span class="n">2</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="n">wsl</span> <span class="p">-</span><span class="n">-update</span>
+</code></pre></div></p>
+<h4 id="12-verify-wsl-installation">1.2 Verify WSL installation<a class="headerlink" href="#12-verify-wsl-installation" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">wsl</span> <span class="p">-</span><span class="n">-status</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="n">wsl</span> <span class="p">-</span><span class="n">-list</span> <span class="p">-</span><span class="n">-verbose</span>
+</code></pre></div>
+<ul>
+<li>
+<p>Expect <code>WSL version: 2</code></p>
+</li>
+<li>
+<p><code>Ubuntu</code> should be listed</p>
+</li>
+</ul>
+<h4 id="13-launch-ubuntu">1.3 Launch Ubuntu<a class="headerlink" href="#13-launch-ubuntu" title="Permanent link">&para;</a></h4>
+<p>Open <strong>Windows Terminal → Ubuntu</strong> (first launch prompts you to create a Linux username/password).</p>
+<hr />
+<h3 id="2-install-docker-desktop">2) Install Docker Desktop<a class="headerlink" href="#2-install-docker-desktop" title="Permanent link">&para;</a></h3>
+<p>Docker is required to run NOMAD and build images.</p>
+<h4 id="21-download-install-requires-administrator">2.1 Download &amp; install (requires Administrator)<a class="headerlink" href="#21-download-install-requires-administrator" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Download: <a href="https://docs.docker.com/desktop/setup/install/windows-install/">Docker Desktop for Windows</a></p>
+</li>
+<li>
+<p>During setup, <strong>enable “Use WSL 2 instead of Hyper-V”</strong></p>
+</li>
+<li>
+<p>Restart when prompted</p>
+</li>
+</ul>
+<h4 id="22-verify-docker-windows-side">2.2 Verify Docker (Windows side)<a class="headerlink" href="#22-verify-docker-windows-side" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">docker</span> <span class="p">-</span><span class="n">-version</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="n">docker</span> <span class="n">run</span> <span class="n">hello-world</span>
+</code></pre></div>
+<h4 id="23-verify-docker-ubuntuwsl-side">2.3 Verify Docker (Ubuntu/WSL side)<a class="headerlink" href="#23-verify-docker-ubuntuwsl-side" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>docker<span class="w"> </span>--version
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>docker<span class="w"> </span>run<span class="w"> </span>hello-world
+</code></pre></div>
+<h4 id="24-ensure-wsl-integration-is-enabled">2.4 Ensure WSL integration is enabled<a class="headerlink" href="#24-ensure-wsl-integration-is-enabled" title="Permanent link">&para;</a></h4>
+<p>Open <strong>Docker Desktop → Settings → Resources → WSL Integration</strong> and enable <strong>Ubuntu</strong>.</p>
+<blockquote>
+<p>If <code>docker run hello-world</code> fails inside Ubuntu with a daemon error, enable WSL integration for Ubuntu, then retry.</p>
+</blockquote>
+<hr />
+<h3 id="3-install-other-developer-tools">3) Install Other Developer Tools<a class="headerlink" href="#3-install-other-developer-tools" title="Permanent link">&para;</a></h3>
+<h4 id="31-git">3.1 Git<a class="headerlink" href="#31-git" title="Permanent link">&para;</a></h4>
+<p><strong>Ubuntu (Path A – recommended):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>git
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>git<span class="w"> </span>--version
+</code></pre></div></p>
+<p><strong>Windows (Path B – alternative):</strong></p>
+<ul>
+<li>
+<p>Download: <a href="https://git-scm.com/download/win">Git for Windows</a></p>
+</li>
+<li>
+<p>Choose <strong>“Install for me only”</strong> if you want to avoid admin rights</p>
+</li>
+<li>
+<p>Verify:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="n">git</span> <span class="p">-</span><span class="n">-version</span>
+</code></pre></div></p>
+</li>
+</ul>
+<hr />
+<h4 id="32-python">3.2 Python<a class="headerlink" href="#32-python" title="Permanent link">&para;</a></h4>
+<p><strong>Ubuntu (Path A):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>python3<span class="w"> </span>python3-pip<span class="w"> </span>python3-venv
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>python3<span class="w"> </span>--version
+</code></pre></div></p>
+<p><strong>Windows (Path B):</strong></p>
+<ul>
+<li>
+<p>Download: <a href="https://www.python.org/downloads/windows/">Python for Windows</a></p>
+</li>
+<li>
+<p>Check <strong>Add python.exe to PATH</strong></p>
+</li>
+<li>
+<p>Check <strong>Enable long path support</strong> (or enable later as below)</p>
+</li>
+<li>
+<p>Choose <strong>“Install for me only”</strong> to avoid admin rights</p>
+</li>
+<li>
+<p>Verify:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="n">python</span> <span class="p">-</span><span class="n">-version</span>
+</code></pre></div></p>
+</li>
+</ul>
+<p><strong>Windows long path fix (important for deep dependency trees):</strong></p>
+<ul>
+<li>
+<p>Group Policy (admin):</p>
+<ul>
+<li><code>Computer Configuration → Administrative Templates → System → Filesystem → Enable Win32 long paths = Enabled</code></li>
+</ul>
+</li>
+<li>
+<p>Registry (admin):
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="n">reg</span> <span class="n">add</span> <span class="n">HKLM</span><span class="p">\</span><span class="n">SYSTEM</span><span class="p">\</span><span class="n">CurrentControlSet</span><span class="p">\</span><span class="n">Control</span><span class="p">\</span><span class="n">FileSystem</span> <span class="p">`</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>  <span class="p">/</span><span class="n">v</span> <span class="n">LongPathsEnabled</span> <span class="p">/</span><span class="n">t</span> <span class="n">REG_DWORD</span> <span class="p">/</span><span class="n">d</span> <span class="n">1</span> <span class="p">/</span><span class="n">f</span>
+</code></pre></div></p>
+</li>
+</ul>
+<hr />
+<h4 id="33-uv-fast-python-package-manager">3.3 uv (fast Python package manager)<a class="headerlink" href="#33-uv-fast-python-package-manager" title="Permanent link">&para;</a></h4>
+<p><strong>Ubuntu (Path A):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>curl<span class="w"> </span>-LsSf<span class="w"> </span>https://astral.sh/uv/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="nb">source</span><span class="w"> </span>~/.bashrc
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>uv<span class="w"> </span>--version
+</code></pre></div></p>
+<p><strong>Windows (Path B):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="n">powershell</span> <span class="n">-ExecutionPolicy</span> <span class="n">ByPass</span> <span class="n">-c</span> <span class="s2">&quot;irm https://astral.sh/uv/install.ps1 | iex&quot;</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="n">uv</span> <span class="p">-</span><span class="n">-version</span>
+</code></pre></div></p>
+<hr />
+<h4 id="34-nodejs-npm">3.4 Node.js &amp; npm<a class="headerlink" href="#34-nodejs-npm" title="Permanent link">&para;</a></h4>
+<p><strong>Ubuntu (Path A) – via nvm (no root needed):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="nb">source</span><span class="w"> </span>~/.bashrc
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>nvm<span class="w"> </span>install<span class="w"> </span>--lts
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>node<span class="w"> </span>-v
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>npm<span class="w"> </span>-v
+</code></pre></div></p>
+<p><strong>Windows (Path B) – ZIP (no admin):</strong></p>
+<ol>
+<li>
+<p>Download <strong>Windows x64 ZIP</strong> from <a href="https://nodejs.org/en/download">Node.js downloads</a></p>
+</li>
+<li>
+<p>Extract to: <code>C:\Users\&lt;YourUsername&gt;\nodejs</code></p>
+</li>
+<li>
+<p>Add this folder to <strong>User PATH</strong> (Environment Variables → User → Path → Add)</p>
+</li>
+<li>
+<p>Verify:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="n">node</span> <span class="n">-v</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="n">npm</span> <span class="n">-v</span>
+</code></pre></div></p>
+</li>
+</ol>
+<hr />
+<h4 id="35-yarn">3.5 Yarn<a class="headerlink" href="#35-yarn" title="Permanent link">&para;</a></h4>
+<p><strong>Ubuntu (Path A):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>corepack<span class="w"> </span><span class="nb">enable</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>corepack<span class="w"> </span>prepare<span class="w"> </span>yarn@stable<span class="w"> </span>--activate
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>yarn<span class="w"> </span>--version
+</code></pre></div></p>
+<p><strong>Windows (Path B):</strong></p>
+<ul>
+<li>
+<p>Option A (admin): install via MSI → <a href="https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable">Yarn</a></p>
+</li>
+<li>
+<p>Option B (no admin, recommended): via Corepack
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="n">corepack</span> <span class="n">enable</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="n">corepack</span> <span class="n">prepare</span> <span class="n">yarn</span><span class="nv">@stable</span> <span class="p">-</span><span class="n">-activate</span>
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="n">yarn</span> <span class="p">-</span><span class="n">-version</span>
+</code></pre></div></p>
+</li>
+</ul>
+<hr />
+<h4 id="36-visual-studio-code">3.6 Visual Studio Code<a class="headerlink" href="#36-visual-studio-code" title="Permanent link">&para;</a></h4>
+<p><strong>Install (User Installer; no admin required):</strong></p>
+<ul>
+<li>Download: <a href="https://code.visualstudio.com/Download">Visual Studio Code</a></li>
+</ul>
+<p><strong>Extensions:</strong></p>
+<ul>
+<li><strong>Remote – WSL</strong> (for Path A)</li>
+<li><strong>Docker</strong></li>
+<li><strong>Python</strong></li>
+<li><strong>JavaScript/TypeScript</strong></li>
+</ul>
+<p><strong>Verify <code>code</code> command:</strong></p>
+<p><strong>Ubuntu (Path A):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>code<span class="w"> </span>.
+</code></pre></div></p>
+<ul>
+<li>Should open VS Code with <strong>“WSL: Ubuntu”</strong> in the status bar</li>
+</ul>
+<p><strong>Windows (Path B):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="n">code</span> <span class="p">.</span>
+</code></pre></div></p>
+<ul>
+<li>Should open VS Code in the current folder</li>
+</ul>
+<p>If <code>code</code> is not found:</p>
+<ul>
+<li>In VS Code (Windows): <strong>Command Palette → “Shell Command: Install 'code' command in PATH”</strong>, then reopen the terminal.</li>
+</ul>
+<hr />
+<h3 id="4-optional-quick-path-verification-sanity-check">4) Optional: Quick PATH Verification (sanity check)<a class="headerlink" href="#4-optional-quick-path-verification-sanity-check" title="Permanent link">&para;</a></h3>
+<p><strong>Ubuntu (Path A):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>which<span class="w"> </span>git
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>which<span class="w"> </span>python3
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>which<span class="w"> </span>node
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>which<span class="w"> </span>npm
+<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>which<span class="w"> </span>yarn
+<a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a>which<span class="w"> </span>uv
+</code></pre></div></p>
+<p><strong>Windows (Path B):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="nb">where </span><span class="n">git</span>
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="nb">where </span><span class="n">python</span>
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a><span class="nb">where </span><span class="n">node</span>
+<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a><span class="nb">where </span><span class="n">npm</span>
+<a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a><span class="nb">where </span><span class="n">yarn</span>
+<a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a><span class="nb">where </span><span class="n">uv</span>
+</code></pre></div></p>
+<p>All commands should resolve to valid paths (user or system locations), and the corresponding <code>--version</code> checks should print versions.</p>
+<hr />
+<h3 id="ready-for-nomad-distro-dev">✅ Ready for NOMAD distro-dev<a class="headerlink" href="#ready-for-nomad-distro-dev" title="Permanent link">&para;</a></h3>
+<p>At this point, your system has WSL2, Docker Desktop, and all required developer tools installed and verified. Continue with the <strong>NOMAD distro-dev</strong> setup using the official repository documentation.</p>
+<h2 id="nomad-dev-distribution">NOMAD Dev Distribution<a class="headerlink" href="#nomad-dev-distribution" title="Permanent link">&para;</a></h2>
+<p>The <strong>NOMAD Dev Distribution</strong> provides a streamlined way to develop NOMAD and its plugins.
+Instead of managing multiple environments, everything is set up in one editable workspace, making development and testing much easier.</p>
+<hr />
+<h3 id="benefits">Benefits<a class="headerlink" href="#benefits" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>One-step installation:</strong> All packages are installed in editable mode, so code changes take effect immediately.</li>
+<li><strong>Centralized codebase:</strong> Easier navigation across NOMAD and plugins.</li>
+<li><strong>Better editor support:</strong> Improved autocompletion and refactoring.</li>
+<li><strong>Consistent tooling:</strong> Shared linting, testing, and formatting rules.</li>
+<li><strong>Flexible plugin management:</strong> Easily manage different plugin sets via branches.</li>
+</ul>
+<hr />
+<h3 id="installation-steps">Installation Steps<a class="headerlink" href="#installation-steps" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Fork the repository</strong>
+   Fork <a href="https://github.com/FAIRmat-NFDI/nomad-distro-dev">nomad-distro-dev</a> into your own GitHub namespace.</p>
+</li>
+<li>
+<p><strong>Clone your fork</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/&lt;your-username&gt;/nomad-distro-dev.git
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="nb">cd</span><span class="w"> </span>nomad-distro-dev
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Install required tools</strong>
+   Make sure you have installed:</p>
+<ul>
+<li>Docker (with <code>docker compose</code>)</li>
+<li>uv (&gt;= 0.5.14)</li>
+<li>Node.js (v20) + Yarn (v1.22)</li>
+</ul>
+</li>
+<li>
+<p><strong>Update submodules</strong>
+   This pulls in the <code>nomad-lab</code> core package.
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--init<span class="w"> </span>--recursive
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Add local plugins (as submodules)</strong>
+   Put your plugins inside the <code>packages/</code> folder. Example:
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>git<span class="w"> </span>submodule<span class="w"> </span>add<span class="w"> </span>https://github.com/FAIRmat-NFDI/nomad-measurements.git<span class="w"> </span>packages/nomad-measurements
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>git<span class="w"> </span>submodule<span class="w"> </span>add<span class="w"> </span>https://github.com/PDI-Berlin/pdi-nomad-plugin.git<span class="w"> </span>packages/pdi-nomad-plugin
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Register plugins with uv</strong>
+   Add them to your environment so that changes are picked up:
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>uv<span class="w"> </span>add<span class="w"> </span>packages/nomad-measurements
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>uv<span class="w"> </span>add<span class="w"> </span>packages/pdi-nomad-plugin
+</code></pre></div>
+   or edit <code>pyproject.toml</code>:
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="k">[tool.uv.sources]</span>
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="n">nomad-measurements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">workspace</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a><span class="n">pdi-nomad-plugin</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">workspace</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Set up the environment</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>uv<span class="w"> </span>run<span class="w"> </span>poe<span class="w"> </span>setup
+</code></pre></div>
+   This installs dependencies and creates a <code>nomad.yaml</code> config file.</p>
+</li>
+<li>
+<p><strong>Start NOMAD</strong>
+   Make sure Docker Desktop is running and the Docker daemon is active.
+   Start the containers:
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+</code></pre></div>
+   Then start the backend and frontend locally:
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>uv<span class="w"> </span>run<span class="w"> </span>poe<span class="w"> </span>start<span class="w">      </span><span class="c1"># backend</span>
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>uv<span class="w"> </span>run<span class="w"> </span>poe<span class="w"> </span>gui<span class="w"> </span>start<span class="w">  </span><span class="c1"># frontend</span>
+</code></pre></div>
+   NOMAD will open in your browser at <code>http://localhost:3000/nomad-oasis/gui</code>.
+   You will need a central NOMAD login to test properly.</p>
+</li>
+</ol>
+<hr />
+<h3 id="day-to-day-development">Day-to-Day Development<a class="headerlink" href="#day-to-day-development" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Update dependencies:</strong>
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>uv<span class="w"> </span>sync
+</code></pre></div></li>
+<li><strong>Run tests for a plugin:</strong>
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>uv<span class="w"> </span>run<span class="w"> </span>--directory<span class="w"> </span>packages/pdi-nomad-plugin<span class="w"> </span>pytest
+</code></pre></div></li>
+<li><strong>Lint and format code:</strong>
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>uv<span class="w"> </span>run<span class="w"> </span>poe<span class="w"> </span>lint
+</code></pre></div></li>
+<li><strong>Stop and restart NOMAD:</strong>
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>down
+<a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+</code></pre></div></li>
+</ul>
+<hr />
+<h3 id="keeping-your-fork-up-to-date">Keeping Your Fork Up to Date<a class="headerlink" href="#keeping-your-fork-up-to-date" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Add upstream once:
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/FAIRmat-NFDI/nomad-distro-dev.git
+</code></pre></div></p>
+</li>
+<li>
+<p>Fetch and merge updates:
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>git<span class="w"> </span>fetch<span class="w"> </span>upstream
+<a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a>git<span class="w"> </span>checkout<span class="w"> </span>main
+<a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a>git<span class="w"> </span>merge<span class="w"> </span>upstream/main
+</code></pre></div></p>
+</li>
+<li>
+<p>Push back to your fork:
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main
+</code></pre></div></p>
+</li>
+</ol>
+<hr />
+<h3 id="common-issues">Common Issues<a class="headerlink" href="#common-issues" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Python package build failures</strong> → Install missing system dependencies (e.g. <code>clang</code> for <code>pycifrw</code>).</li>
+<li><strong>Long paths on Windows</strong> → Enable <a href="https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation">long path support</a>.</li>
+<li><strong>Phonopy install fails</strong> →
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>uv<span class="w"> </span>venv<span class="w"> </span>-p<span class="w"> </span><span class="m">3</span>.12
+<a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span><span class="s1">&#39;numpy&gt;=1.25&#39;</span>
+<a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span><span class="s1">&#39;phonopy==2.11.0&#39;</span><span class="w"> </span>--no-build-isolation
+</code></pre></div></li>
+</ul>
+<hr />
+<h3 id="summary">✅ Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
+<p>With <code>nomad-distro-dev</code>, you get a <strong>single development environment</strong> for NOMAD and its plugins.</p>
+<ul>
+<li>Fork → clone → add plugins (<code>nomad-measurements</code>, <code>pdi-nomad-plugin</code>) → <code>uv run poe setup</code> → start NOMAD with Docker running.</li>
+<li>Plugins are editable immediately.</li>
+<li>Updates and testing are straightforward.</li>
+</ul>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <!--
+  Copyright (c) 2016-2025 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Footer -->
+<footer class="md-footer">
+
+  <!-- Link to previous and/or next page -->
+  
+    
+      
+      <nav
+        class="md-footer__inner md-grid"
+        aria-label=""
+        
+      >
+
+        <!-- Link to previous page -->
+        
+          
+          <a
+            href="introduction.html"
+            class="md-footer__link md-footer__link--prev"
+            aria-label="Previous: Introduction"
+          >
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Introduction
+              </div>
+            </div>
+          </a>
+        
+
+        <!-- Link to next page -->
+        
+          
+          <a
+            href="part-2-developing-plugins.html"
+            class="md-footer__link md-footer__link--next"
+            aria-label="Next: Part 2"
+          >
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Part 2
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+
+  <div class="md-footer-meta md-footer-custom">
+    <div class="md-footer-license md-typeset">
+      <p>
+        © FAIRmat-NFDI (Apache 2.0) — Modified by Glaide Data GmbH.<br>
+        Licensed content; redistribution prohibited without permission.
+      </p>
+    </div>
+  </div>
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+
+      <!-- Social links -->
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.footer", "content.code.copy"], "search": "assets/javascripts/workers/search.c7dec7e7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.da79ceb7.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

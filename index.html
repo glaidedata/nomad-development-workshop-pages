@@ -1,0 +1,683 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Glaide Data Development Workshop for NOMAD Oasis Maintainers and Developers
+">
+      
+      
+        <meta name="author" content="Galide Data GmbH">
+      
+      
+      <link rel="icon" href="assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-8.1.1">
+    
+    
+      
+        <title>NOMAD Development Workshop</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.23b6d78a.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,400i,700%7C&display=fallback">
+        <style>:root{--md-text-font:"Titillium Web";--md-code-font:""}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="#2a4cdf" data-md-color-accent="#008a67">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#workshop-structure-nomad-development-plugins" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://www.glaidedata.com/" title="NOMAD Development Workshop" class="md-header__button md-logo" aria-label="NOMAD Development Workshop" data-md-component="logo">
+      
+  <img src="assets/glaide_logo_long_white.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            NOMAD Development Workshop
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Overview
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/glaidedata/nomad-development-workshop-pages" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://www.glaidedata.com/" title="NOMAD Development Workshop" class="md-nav__button md-logo" aria-label="NOMAD Development Workshop" data-md-component="logo">
+      
+  <img src="assets/glaide_logo_long_white.png" alt="logo">
+
+    </a>
+    NOMAD Development Workshop
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/glaidedata/nomad-development-workshop-pages" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Overview
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="index.html" class="md-nav__link md-nav__link--active">
+        Overview
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-1-setup-environment" class="md-nav__link">
+    Part 1: Setup &amp; Environment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-2-developing-nomad-plugins" class="md-nav__link">
+    Part 2: Developing NOMAD Plugins
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-3-collaborative-development-with-git-and-github" class="md-nav__link">
+    Part 3: Collaborative Development with Git and GitHub
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-4-writing-and-publishing-a-nomad-oasis-image-with-plugins" class="md-nav__link">
+    Part 4: Writing and Publishing a NOMAD Oasis Image (with Plugins)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wrap-up-qa" class="md-nav__link">
+    Wrap-Up &amp; Q&amp;A
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="introduction.html" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part-1-setup-environment.html" class="md-nav__link">
+        Part 1
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part-2-developing-plugins.html" class="md-nav__link">
+        Part 2
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part-3-collaborative-dev.html" class="md-nav__link">
+        Part 3
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part-4-oasis-image.html" class="md-nav__link">
+        Part 4
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="wrap-up.html" class="md-nav__link">
+        Wrap-Up & Q&A
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-1-setup-environment" class="md-nav__link">
+    Part 1: Setup &amp; Environment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-2-developing-nomad-plugins" class="md-nav__link">
+    Part 2: Developing NOMAD Plugins
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-3-collaborative-development-with-git-and-github" class="md-nav__link">
+    Part 3: Collaborative Development with Git and GitHub
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-4-writing-and-publishing-a-nomad-oasis-image-with-plugins" class="md-nav__link">
+    Part 4: Writing and Publishing a NOMAD Oasis Image (with Plugins)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wrap-up-qa" class="md-nav__link">
+    Wrap-Up &amp; Q&amp;A
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+<h1 id="workshop-structure-nomad-development-plugins"><strong>Workshop Structure: NOMAD Development &amp; Plugins</strong><a class="headerlink" href="#workshop-structure-nomad-development-plugins" title="Permanent link">&para;</a></h1>
+<h2 id="prerequisites"><strong><a href="#prerequisites">Prerequisites</a></strong><a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><strong>Admin rights:</strong> Users must have administrator rights on their computer to install software and change system settings.</p>
+</li>
+<li>
+<p><strong>Software to be installed:</strong> Docker Desktop, WSL2, Python, Node.js, Yarn, VSCode</p>
+</li>
+<li>
+<p><strong>Accounts:</strong> GitHub account, central NOMAD account (www.nomad-lab.eu)</p>
+</li>
+<li>
+<p><strong>Notes:</strong> Check available disk space, memory, and internet connection</p>
+</li>
+</ul>
+<h2 id="introduction"><strong><a href="#introduction">Introduction</a></strong><a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Welcome &amp; goals of the workshop</p>
+</li>
+<li>
+<p>Quick participant check (who already uses NOMAD, Git, Docker?)</p>
+</li>
+<li>
+<p>Present prerequisites &amp; confirm everyone is set up</p>
+</li>
+</ul>
+<h2 id="part-1-setup-environment"><strong><a href="#part-1-setup--environment">Part 1: Setup &amp; Environment</a></strong><a class="headerlink" href="#part-1-setup-environment" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><strong>Topic:</strong> Install NOMAD Distro Dev on Windows</p>
+</li>
+<li>
+<p><strong>Method:</strong> Live demo + guided installation by participants</p>
+</li>
+<li>
+<p><strong>Output:</strong> Everyone has a running local NOMAD instance</p>
+</li>
+</ul>
+<h2 id="part-2-developing-nomad-plugins"><strong><a href="#part-2-developing-nomad-plugins">Part 2: Developing NOMAD Plugins</a></strong><a class="headerlink" href="#part-2-developing-nomad-plugins" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><strong>Topic:</strong> Install, activate, and modify NOMAD plugins.</p>
+</li>
+<li>
+<p><strong>Method:</strong> Walk through the structure of a plugin, add one to the dev environment, then make and test a small code change using logs, CLI tests, and the GUI.</p>
+</li>
+<li>
+<p><strong>Output:</strong> Participants understand plugin anatomy, can install and activate plugins, and are able to implement and validate code changes locally.</p>
+</li>
+</ul>
+<h2 id="part-3-collaborative-development-with-git-and-github"><strong><a href="#part-3-collaborative-development-with-git-and-github">Part 3: Collaborative Development with Git and GitHub</a></strong><a class="headerlink" href="#part-3-collaborative-development-with-git-and-github" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><strong>Topic:</strong> Working with Git &amp; GitHub</p>
+</li>
+<li>
+<p><strong>Method:</strong> Branch → commit → push → pull request → merge</p>
+</li>
+<li>
+<p><strong>Output:</strong> Participants contribute a change to a shared repo</p>
+</li>
+</ul>
+<h2 id="part-4-writing-and-publishing-a-nomad-oasis-image-with-plugins"><strong><a href="#part-4-writing-and-publishing-a-nomad-oasis-image-with-plugins">Part 4: Writing and Publishing a NOMAD Oasis Image (with Plugins)</a></strong><a class="headerlink" href="#part-4-writing-and-publishing-a-nomad-oasis-image-with-plugins" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><strong>Topic:</strong> Write new NOMAD Oasis image</p>
+</li>
+<li>
+<p><strong>Method:</strong> Build Docker image with plugin, run locally, optionally deploy on server</p>
+</li>
+<li>
+<p><strong>Output:</strong> Working custom NOMAD Oasis instance with plugin</p>
+</li>
+</ul>
+<h2 id="wrap-up-qa"><strong><a href="#wrap-up--qa">Wrap-Up &amp; Q&amp;A</a></strong><a class="headerlink" href="#wrap-up-qa" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Recap main learning points</p>
+</li>
+<li>
+<p>Common pitfalls &amp; troubleshooting tips</p>
+</li>
+<li>
+<p>Resources (docs, GitHub, community channels)</p>
+</li>
+<li>
+<p>Open floor for participant questions</p>
+</li>
+</ul>
+<hr />
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <!--
+  Copyright (c) 2016-2025 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Footer -->
+<footer class="md-footer">
+
+  <!-- Link to previous and/or next page -->
+  
+    
+      
+      <nav
+        class="md-footer__inner md-grid"
+        aria-label=""
+        
+      >
+
+        <!-- Link to previous page -->
+        
+
+        <!-- Link to next page -->
+        
+          
+          <a
+            href="introduction.html"
+            class="md-footer__link md-footer__link--next"
+            aria-label="Next: Introduction"
+          >
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Introduction
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+
+  <div class="md-footer-meta md-footer-custom">
+    <div class="md-footer-license md-typeset">
+      <p>
+        © FAIRmat-NFDI (Apache 2.0) — Modified by Glaide Data GmbH.<br>
+        Licensed content; redistribution prohibited without permission.
+      </p>
+    </div>
+  </div>
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+
+      <!-- Social links -->
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.footer", "content.code.copy"], "search": "assets/javascripts/workers/search.c7dec7e7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.da79ceb7.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

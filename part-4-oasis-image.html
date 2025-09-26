@@ -1,0 +1,1554 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Glaide Data Development Workshop for NOMAD Oasis Maintainers and Developers
+">
+      
+      
+        <meta name="author" content="Galide Data GmbH">
+      
+      
+      <link rel="icon" href="assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-8.1.1">
+    
+    
+      
+        <title>Part 4 - NOMAD Development Workshop</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.23b6d78a.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,400i,700%7C&display=fallback">
+        <style>:root{--md-text-font:"Titillium Web";--md-code-font:""}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="#2a4cdf" data-md-color-accent="#008a67">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#part-4-writing-and-publishing-a-nomad-oasis-image-with-plugins" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://www.glaidedata.com/" title="NOMAD Development Workshop" class="md-header__button md-logo" aria-label="NOMAD Development Workshop" data-md-component="logo">
+      
+  <img src="assets/glaide_logo_long_white.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            NOMAD Development Workshop
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Part 4
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/glaidedata/nomad-development-workshop-pages" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://www.glaidedata.com/" title="NOMAD Development Workshop" class="md-nav__button md-logo" aria-label="NOMAD Development Workshop" data-md-component="logo">
+      
+  <img src="assets/glaide_logo_long_white.png" alt="logo">
+
+    </a>
+    NOMAD Development Workshop
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/glaidedata/nomad-development-workshop-pages" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="introduction.html" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part-1-setup-environment.html" class="md-nav__link">
+        Part 1
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part-2-developing-plugins.html" class="md-nav__link">
+        Part 2
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="part-3-collaborative-dev.html" class="md-nav__link">
+        Part 3
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Part 4
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="part-4-oasis-image.html" class="md-nav__link md-nav__link--active">
+        Part 4
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#concept-overview" class="md-nav__link">
+    Concept Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-by-step-create-your-distribution-repository" class="md-nav__link">
+    Step-by-Step: Create Your Distribution Repository
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repository-layout-what-youll-touch-most" class="md-nav__link">
+    Repository Layout (What You’ll Touch Most)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-a-plugin-to-pyprojecttoml" class="md-nav__link">
+    Add a Plugin to pyproject.toml
+  </a>
+  
+    <nav class="md-nav" aria-label="Add a Plugin to pyproject.toml">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-plugin-from-pypi" class="md-nav__link">
+    A) Plugin from PyPI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-plugin-from-git-pinned-to-a-commit" class="md-nav__link">
+    B) Plugin from Git (pinned to a commit)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-plugin-from-git-pinned-to-a-tag" class="md-nav__link">
+    C) Plugin from Git (pinned to a tag)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d-plugin-in-a-subdirectory-of-a-repo" class="md-nav__link">
+    D) Plugin in a subdirectory of a repo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commit-push-and-trigger-the-image-build" class="md-nav__link">
+    Commit, Push, and Trigger the Image Build
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-to-find-the-built-images" class="md-nav__link">
+    Where to Find the Built Images
+  </a>
+  
+    <nav class="md-nav" aria-label="Where to Find the Built Images">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ghcr-login-if-your-package-is-private" class="md-nav__link">
+    GHCR Login (if your package is private)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-local-test-pull-run" class="md-nav__link">
+    Quick Local Test: Pull &amp; Run
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-the-image-after-more-plugin-changes" class="md-nav__link">
+    Updating the Image After More Plugin Changes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes-on-the-jupyter-north-image" class="md-nav__link">
+    Notes on the Jupyter (NORTH) Image
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-the-pdi-nomad-oasis-image" class="md-nav__link">
+    Updating the PDI NOMAD Oasis Image
+  </a>
+  
+    <nav class="md-nav" aria-label="Updating the PDI NOMAD Oasis Image">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#suggested-practices" class="md-nav__link">
+    Suggested Practices
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#useful-docker-commands" class="md-nav__link">
+    Useful Docker Commands
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-command-cheat-sheet" class="md-nav__link">
+    Docker Command Cheat Sheet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    ✅ Summary
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-tags-to-version-the-pdi-nomad-oasis-image" class="md-nav__link">
+    Using Tags to Version the PDI NOMAD Oasis Image
+  </a>
+  
+    <nav class="md-nav" aria-label="Using Tags to Version the PDI NOMAD Oasis Image">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-use-tags" class="md-nav__link">
+    Why Use Tags?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-by-step-creating-and-using-tags" class="md-nav__link">
+    Step-by-Step: Creating and Using Tags
+  </a>
+  
+    <nav class="md-nav" aria-label="Step-by-Step: Creating and Using Tags">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-make-sure-your-branch-is-up-to-date" class="md-nav__link">
+    1. Make sure your branch is up to date
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-a-new-tag" class="md-nav__link">
+    2. Create a new tag
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-push-the-tag-to-github" class="md-nav__link">
+    3. Push the tag to GitHub
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resulting-docker-images" class="md-nav__link">
+    Resulting Docker Images
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-deploy-a-tagged-image-on-the-server" class="md-nav__link">
+    4. Deploy a Tagged Image on the Server
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-optional-create-a-github-release" class="md-nav__link">
+    5. (Optional) Create a GitHub Release
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    ✅ Best Practices
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    Troubleshooting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference-add-plugin-build-use" class="md-nav__link">
+    Quick Reference: Add Plugin → Build → Use
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="wrap-up.html" class="md-nav__link">
+        Wrap-Up & Q&A
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#concept-overview" class="md-nav__link">
+    Concept Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-by-step-create-your-distribution-repository" class="md-nav__link">
+    Step-by-Step: Create Your Distribution Repository
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repository-layout-what-youll-touch-most" class="md-nav__link">
+    Repository Layout (What You’ll Touch Most)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-a-plugin-to-pyprojecttoml" class="md-nav__link">
+    Add a Plugin to pyproject.toml
+  </a>
+  
+    <nav class="md-nav" aria-label="Add a Plugin to pyproject.toml">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-plugin-from-pypi" class="md-nav__link">
+    A) Plugin from PyPI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-plugin-from-git-pinned-to-a-commit" class="md-nav__link">
+    B) Plugin from Git (pinned to a commit)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-plugin-from-git-pinned-to-a-tag" class="md-nav__link">
+    C) Plugin from Git (pinned to a tag)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d-plugin-in-a-subdirectory-of-a-repo" class="md-nav__link">
+    D) Plugin in a subdirectory of a repo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commit-push-and-trigger-the-image-build" class="md-nav__link">
+    Commit, Push, and Trigger the Image Build
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-to-find-the-built-images" class="md-nav__link">
+    Where to Find the Built Images
+  </a>
+  
+    <nav class="md-nav" aria-label="Where to Find the Built Images">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ghcr-login-if-your-package-is-private" class="md-nav__link">
+    GHCR Login (if your package is private)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-local-test-pull-run" class="md-nav__link">
+    Quick Local Test: Pull &amp; Run
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-the-image-after-more-plugin-changes" class="md-nav__link">
+    Updating the Image After More Plugin Changes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes-on-the-jupyter-north-image" class="md-nav__link">
+    Notes on the Jupyter (NORTH) Image
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-the-pdi-nomad-oasis-image" class="md-nav__link">
+    Updating the PDI NOMAD Oasis Image
+  </a>
+  
+    <nav class="md-nav" aria-label="Updating the PDI NOMAD Oasis Image">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#suggested-practices" class="md-nav__link">
+    Suggested Practices
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#useful-docker-commands" class="md-nav__link">
+    Useful Docker Commands
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-command-cheat-sheet" class="md-nav__link">
+    Docker Command Cheat Sheet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    ✅ Summary
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-tags-to-version-the-pdi-nomad-oasis-image" class="md-nav__link">
+    Using Tags to Version the PDI NOMAD Oasis Image
+  </a>
+  
+    <nav class="md-nav" aria-label="Using Tags to Version the PDI NOMAD Oasis Image">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-use-tags" class="md-nav__link">
+    Why Use Tags?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-by-step-creating-and-using-tags" class="md-nav__link">
+    Step-by-Step: Creating and Using Tags
+  </a>
+  
+    <nav class="md-nav" aria-label="Step-by-Step: Creating and Using Tags">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-make-sure-your-branch-is-up-to-date" class="md-nav__link">
+    1. Make sure your branch is up to date
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-a-new-tag" class="md-nav__link">
+    2. Create a new tag
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-push-the-tag-to-github" class="md-nav__link">
+    3. Push the tag to GitHub
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resulting-docker-images" class="md-nav__link">
+    Resulting Docker Images
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-deploy-a-tagged-image-on-the-server" class="md-nav__link">
+    4. Deploy a Tagged Image on the Server
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-optional-create-a-github-release" class="md-nav__link">
+    5. (Optional) Create a GitHub Release
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    ✅ Best Practices
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    Troubleshooting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference-add-plugin-build-use" class="md-nav__link">
+    Quick Reference: Add Plugin → Build → Use
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+<h1 id="part-4-writing-and-publishing-a-nomad-oasis-image-with-plugins">Part 4: Writing and Publishing a NOMAD Oasis Image (with Plugins)<a class="headerlink" href="#part-4-writing-and-publishing-a-nomad-oasis-image-with-plugins" title="Permanent link">&para;</a></h1>
+<p>This section explains how to <strong>create your own NOMAD Oasis distribution</strong> from the official template and how to <strong>trigger image builds</strong> by adding plugins to <code>pyproject.toml</code>. The result is a container image published to <strong>GitHub Container Registry (GHCR)</strong> that you can deploy on a server or run locally.</p>
+<hr />
+<h2 id="concept-overview">Concept Overview<a class="headerlink" href="#concept-overview" title="Permanent link">&para;</a></h2>
+<ul>
+<li>The repository <strong><code>FAIRmat-NFDI/nomad-distro-template</code></strong> is a <strong>template</strong> for building custom NOMAD Oasis images.</li>
+<li>When you create a new repo from this template, <strong>GitHub Actions</strong> will automatically build and publish:<ul>
+<li>an <strong>app</strong> image (Oasis),</li>
+<li>and a <strong>jupyter</strong> image (for NORTH / JupyterHub).</li>
+</ul>
+</li>
+<li>You <strong>customize</strong> the image by listing your <strong>plugins</strong> under <code>[project.optional-dependencies].plugins</code> in <code>pyproject.toml</code>.</li>
+<li><strong>Every push to <code>main</code></strong> triggers the CI workflow that <strong>builds and publishes</strong> new images to <strong>GHCR</strong>.</li>
+</ul>
+<p><strong>Visibility &amp; Authentication Notes</strong></p>
+<ul>
+<li>Depending on your org/repo settings, the produced image may be <strong>private</strong> (requires a <strong>Personal Access Token</strong>, PAT, to pull) or <strong>public</strong> (recommended for easy deployment).</li>
+<li>To keep the image private, configure a PAT with the scopes required for GHCR.</li>
+<li>To make it public, ensure your organization allows public packages and change the package visibility after the first successful build.</li>
+</ul>
+<p><strong>Discoverability Tip</strong></p>
+<ul>
+<li>Consider adding the repo topic <strong><code>nomad-distribution</code></strong> (Repo → <em>About</em> → ⚙️ → <em>Topics</em>) so others can find your distribution.</li>
+</ul>
+<hr />
+<h2 id="step-by-step-create-your-distribution-repository">Step-by-Step: Create Your Distribution Repository<a class="headerlink" href="#step-by-step-create-your-distribution-repository" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>Generate a new repo from the template</strong></p>
+<ul>
+<li>Open: <code>https://github.com/FAIRmat-NFDI/nomad-distro-template</code></li>
+<li>Click <strong>Use this template</strong> (top-right), or use the “New from template” link:
+  <code>https://github.com/new?template_name=nomad-distro-template&amp;template_owner=FAIRmat-NFDI</code></li>
+<li>Choose a name (e.g., <code>my-nomad-oasis</code>) and create the repo.</li>
+</ul>
+</li>
+<li>
+<p><strong>Wait for the template initialization workflow</strong></p>
+<ul>
+<li>On first creation, a GitHub Action (Template Repository Initialization) runs automatically.</li>
+<li>
+<p>If the “initialization warning” in the README does not disappear after a few minutes:</p>
+<ul>
+<li>Go to <strong>Actions</strong> → select <strong>Template Repository Initialization</strong> → <strong>Run workflow</strong> to trigger it manually.</li>
+</ul>
+</li>
+<li>
+<p>Once finished, refresh the page (the warning disappears).</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Clone your new repository or run it directly in GitHub Codespaces</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/&lt;YOUR_ORG_OR_USER&gt;/&lt;YOUR_REPO&gt;.git
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>&lt;YOUR_REPO&gt;
+</code></pre></div>
+GitHub Codespaces:</p>
+</li>
+<li>
+<p><strong>(Optional) Make your package public</strong></p>
+<ul>
+<li>After your first successful build, open your repo’s <strong>Packages</strong> section and change visibility to <strong>Public</strong> if desired.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="repository-layout-what-youll-touch-most">Repository Layout (What You’ll Touch Most)<a class="headerlink" href="#repository-layout-what-youll-touch-most" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong><code>pyproject.toml</code></strong> → declare which <strong>plugins</strong> to include in the built image.</li>
+<li><strong><code>.github/workflows/docker-publish.yml</code></strong> → CI that builds and pushes images.</li>
+<li><strong><code>docker-compose.yaml</code></strong> and <strong><code>configs/</code></strong> → example deployment config (local/server).</li>
+</ul>
+<p>You <strong>add plugins</strong> to <code>pyproject.toml</code>. After you <strong>merge to <code>main</code></strong>, CI builds and publishes fresh images.</p>
+<hr />
+<h2 id="add-a-plugin-to-pyprojecttoml">Add a Plugin to <code>pyproject.toml</code><a class="headerlink" href="#add-a-plugin-to-pyprojecttoml" title="Permanent link">&para;</a></h2>
+<p>Open <code>pyproject.toml</code> and add your plugin(s) under the <code>plugins</code> extra:</p>
+<h3 id="a-plugin-from-pypi">A) Plugin from PyPI<a class="headerlink" href="#a-plugin-from-pypi" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[project.optional-dependencies]</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">plugins</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="s2">&quot;nomad-material-processing&gt;=1.0.0&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">]</span>
+</code></pre></div>
+<h3 id="b-plugin-from-git-pinned-to-a-commit">B) Plugin from Git (pinned to a commit)<a class="headerlink" href="#b-plugin-from-git-pinned-to-a-commit" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[project.optional-dependencies]</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">plugins</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="s2">&quot;nomad-measurements @ git+https://github.com/FAIRmat-NFDI/nomad-measurements.git@71b7e8c9bb376ce9e8610aba9a20be0b5bce6775&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">]</span>
+</code></pre></div>
+<h3 id="c-plugin-from-git-pinned-to-a-tag">C) Plugin from Git (pinned to a tag)<a class="headerlink" href="#c-plugin-from-git-pinned-to-a-tag" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">[project.optional-dependencies]</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">plugins</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="s2">&quot;nomad-measurements @ git+https://github.com/FAIRmat-NFDI/nomad-measurements.git@v0.0.4&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">]</span>
+</code></pre></div>
+<h3 id="d-plugin-in-a-subdirectory-of-a-repo">D) Plugin in a subdirectory of a repo<a class="headerlink" href="#d-plugin-in-a-subdirectory-of-a-repo" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">[project.optional-dependencies]</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">plugins</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="s2">&quot;ikz_pld_plugin @ git+https://github.com/FAIRmat-NFDI/AreaA-data_modeling_and_schemas.git@30fc90843428d1b36a1d222874803abae8b1cb42#subdirectory=PVD/PLD/jeremy_ikz/ikz_pld_plugin&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">]</span>
+</code></pre></div>
+<p><strong>Tips</strong></p>
+<ul>
+<li>Prefer <strong>tags</strong> or <strong>commits</strong> for reproducible builds.</li>
+<li>You can list <strong>multiple</strong> plugins in the same array.</li>
+<li>Keep versions <strong>pinned</strong> (tags/ranges) to avoid surprises.</li>
+</ul>
+<p>In our case, let's add the <code>pdi-nomad-plugin</code> to the Oasis image and remove all other plugins.
+Add the following line to <code>[project.optional-dependencies]</code> and remove the existing plugins:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>
+</code></pre></div></p>
+<hr />
+<h2 id="commit-push-and-trigger-the-image-build">Commit, Push, and Trigger the Image Build<a class="headerlink" href="#commit-push-and-trigger-the-image-build" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>Create a feature branch, edit, commit</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>add-my-plugin
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="c1"># edit pyproject.toml as above</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>git<span class="w"> </span>add<span class="w"> </span>pyproject.toml
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add plugin(s) to distribution image&quot;</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Push the branch and open a Pull Request</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>add-my-plugin
+</code></pre></div></p>
+<ul>
+<li>On GitHub, open a <strong>PR</strong> into <code>main</code>.</li>
+<li>Request review if branch protection rules are in place.</li>
+</ul>
+</li>
+<li>
+<p><strong>Merge to <code>main</code> to trigger CI</strong></p>
+<ul>
+<li>Merging the PR starts the <strong>docker-publish</strong> workflow.</li>
+<li>Watch progress under <strong>Actions</strong> → <strong>docker-publish</strong>.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="where-to-find-the-built-images">Where to Find the Built Images<a class="headerlink" href="#where-to-find-the-built-images" title="Permanent link">&para;</a></h2>
+<p>After a successful run, images are pushed to <strong>GHCR</strong>:</p>
+<ul>
+<li>App: <code>ghcr.io/&lt;OWNER&gt;/&lt;REPO&gt;:main</code></li>
+<li>Jupyter: <code>ghcr.io/&lt;OWNER&gt;/&lt;REPO&gt;/jupyter:main</code></li>
+</ul>
+<p><strong>Pulling private images requires authentication</strong> with a PAT.</p>
+<h3 id="ghcr-login-if-your-package-is-private">GHCR Login (if your package is private)<a class="headerlink" href="#ghcr-login-if-your-package-is-private" title="Permanent link">&para;</a></h3>
+<p>Create a <strong>Personal Access Token (classic)</strong> with scopes:</p>
+<ul>
+<li><code>read:packages</code> (pull)</li>
+<li><code>write:packages</code> (push; not needed for deploy-only machines)</li>
+</ul>
+<p>Login:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&lt;YOUR_PAT&gt;&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>docker<span class="w"> </span>login<span class="w"> </span>ghcr.io<span class="w"> </span>-u<span class="w"> </span>&lt;YOUR_GITHUB_USERNAME&gt;<span class="w"> </span>--password-stdin
+</code></pre></div></p>
+<hr />
+<h2 id="quick-local-test-pull-run">Quick Local Test: Pull &amp; Run<a class="headerlink" href="#quick-local-test-pull-run" title="Permanent link">&para;</a></h2>
+<p>From the distribution repo folder:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>pull
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+</code></pre></div></p>
+<p>Health check:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># HTTP</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>curl<span class="w"> </span>localhost/nomad-oasis/alive
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="c1"># HTTPS (use --insecure only for self-signed certs)</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>curl<span class="w"> </span>--insecure<span class="w"> </span>https://localhost/nomad-oasis/alive
+</code></pre></div></p>
+<p>Open the UI: <code>http://localhost/nomad-oasis</code></p>
+<blockquote>
+<p><strong>Linux-only note:</strong> You may need to fix volume ownership once:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span><span class="m">1000</span><span class="w"> </span>.volumes
+</code></pre></div></p>
+</blockquote>
+<hr />
+<h2 id="updating-the-image-after-more-plugin-changes">Updating the Image After More Plugin Changes<a class="headerlink" href="#updating-the-image-after-more-plugin-changes" title="Permanent link">&para;</a></h2>
+<p>When you add or update plugins in <code>pyproject.toml</code> and <strong>merge to <code>main</code></strong>, CI will build fresh images.</p>
+<p>To update your local deployment:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>down
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>pull
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+</code></pre></div></p>
+<p>Free disk space if needed:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>docker<span class="w"> </span>image<span class="w"> </span>prune<span class="w"> </span>-a
+</code></pre></div></p>
+<hr />
+<h2 id="notes-on-the-jupyter-north-image">Notes on the Jupyter (NORTH) Image<a class="headerlink" href="#notes-on-the-jupyter-north-image" title="Permanent link">&para;</a></h2>
+<ul>
+<li>CI also builds a <strong>Jupyter image</strong>: <code>ghcr.io/&lt;OWNER&gt;/&lt;REPO&gt;/jupyter:main</code></li>
+<li>Pre-pull to avoid startup timeouts:
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>docker<span class="w"> </span>pull<span class="w"> </span>ghcr.io/&lt;OWNER&gt;/&lt;REPO&gt;/jupyter:main
+</code></pre></div></li>
+<li>Add global Jupyter packages by listing them under the <code>jupyter</code> extra in <code>pyproject.toml</code>:
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">[project.optional-dependencies]</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="n">jupyter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">  </span><span class="s2">&quot;voila&quot;</span><span class="p">,</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">  </span><span class="s2">&quot;ipyaggrid&quot;</span><span class="p">,</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">  </span><span class="s2">&quot;ipysheet&quot;</span><span class="p">,</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">  </span><span class="s2">&quot;ipydatagrid&quot;</span><span class="p">,</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">  </span><span class="s2">&quot;jupyter-flex&quot;</span><span class="p">,</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="p">]</span>
+</code></pre></div></li>
+</ul>
+<hr />
+<h2 id="updating-the-pdi-nomad-oasis-image">Updating the PDI NOMAD Oasis Image<a class="headerlink" href="#updating-the-pdi-nomad-oasis-image" title="Permanent link">&para;</a></h2>
+<p>The NOMAD Oasis image which runs on the PDI server is managed here:
+https://github.com/PDI-Berlin/PDI-NOMAD-Oasis-image</p>
+<p>You should organize yourself regarding <strong>responsibility</strong> (who maintains the repo and images) and <strong>accessibility</strong> (who has permissions to update, push changes, and trigger new builds).</p>
+<hr />
+<h3 id="suggested-practices">Suggested Practices<a class="headerlink" href="#suggested-practices" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>Team access</strong></p>
+<ul>
+<li>Ensure that at least 2–3 team members have <em>Admin</em> or <em>Maintainer</em> rights on the repository to avoid single points of failure.</li>
+<li>Use a GitHub Team (inside the PDI organization) to manage access rather than assigning rights individually.</li>
+</ul>
+</li>
+<li>
+<p><strong>Branch protection</strong></p>
+<ul>
+<li>Protect the <code>main</code> branch. Require pull requests and at least one reviewer before merging.</li>
+<li>This avoids accidental pushes that would immediately trigger a new image build.</li>
+</ul>
+</li>
+<li>
+<p><strong>Versioning</strong></p>
+<ul>
+<li>Tag releases (e.g., <code>v0.1.0</code>, <code>v0.2.0</code>) before merging into <code>main</code>.</li>
+<li>Tags can be used for stable deployments and make it easy to roll back to a known working version.</li>
+<li>Consider using GitHub Releases to document what changed in each update.</li>
+</ul>
+</li>
+<li>
+<p><strong>Documentation</strong></p>
+<ul>
+<li>
+<p>Keep the README updated with clear instructions on how to:</p>
+<ul>
+<li>Add plugins (<code>pyproject.toml</code>)</li>
+<li>Trigger builds (merge to <code>main</code>)</li>
+<li>Pull and deploy images on the server</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>CI Monitoring</strong></p>
+<ul>
+<li>Regularly check the GitHub Actions build logs after merging changes.</li>
+<li>If builds fail, fixes should be prioritized because the Oasis server cannot update otherwise.</li>
+</ul>
+</li>
+<li>
+<p><strong>Security</strong></p>
+<ul>
+<li>If the image is private, ensure that the required PAT or credentials for pulling are stored securely on the server (e.g., in a Docker login config file).</li>
+<li>Rotate tokens if people leave the team.</li>
+</ul>
+</li>
+<li>
+<p><strong>Update procedure</strong></p>
+<ul>
+<li>When updating the image on the server, follow the safe sequence:
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>down
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>pull
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+</code></pre></div></li>
+<li>Always test after updating:
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>curl<span class="w"> </span>localhost/nomad-oasis/alive
+</code></pre></div></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="useful-docker-commands">Useful Docker Commands<a class="headerlink" href="#useful-docker-commands" title="Permanent link">&para;</a></h3>
+<p>When working with NOMAD Oasis images, it’s helpful to know a few basic Docker commands for monitoring and troubleshooting:</p>
+<ul>
+<li>
+<p><strong>List running containers</strong><br />
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>docker<span class="w"> </span>ps
+</code></pre></div>
+  Shows all currently running containers with their names, IDs, ports, and status.</p>
+</li>
+<li>
+<p><strong>Check logs of a container</strong><br />
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>docker<span class="w"> </span>logs<span class="w"> </span>&lt;container_name&gt;
+</code></pre></div>
+  Displays the output of a running container. Use this to check for errors or debug startup issues.<br />
+  Add <code>-f</code> to follow logs in real time:
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>docker<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>&lt;container_name&gt;
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>List all containers (including stopped)</strong><br />
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>docker<span class="w"> </span>ps<span class="w"> </span>-a
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Stop / start / restart a container</strong><br />
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>docker<span class="w"> </span>stop<span class="w"> </span>&lt;container_name&gt;
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>docker<span class="w"> </span>start<span class="w"> </span>&lt;container_name&gt;
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>docker<span class="w"> </span>restart<span class="w"> </span>&lt;container_name&gt;
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Remove unused images and containers</strong><br />
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>docker<span class="w"> </span>system<span class="w"> </span>prune
+</code></pre></div>
+  Cleans up stopped containers, dangling images, and unused networks.<br />
+  Add <code>-a</code> to remove all unused images (be careful, it frees space but requires re-pulling images later).</p>
+</li>
+<li>
+<p><strong>Check disk usage</strong><br />
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>docker<span class="w"> </span>system<span class="w"> </span>df
+</code></pre></div>
+  Summarizes how much disk space images, containers, and volumes are using.</p>
+</li>
+<li>
+<p><strong>Open a shell inside a container</strong><br />
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>&lt;container_name&gt;<span class="w"> </span>/bin/bash
+</code></pre></div>
+  Gives you direct access to the container’s shell, useful for advanced debugging.</p>
+</li>
+</ul>
+<hr />
+<p><strong>Tip:</strong> Most NOMAD Oasis setups use <code>docker compose</code>, which manages multiple containers at once.<br />
+- To check logs of all services together:<br />
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>-f
+</code></pre></div>
+- To restart everything:<br />
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>down
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+</code></pre></div></p>
+<hr />
+<h3 id="docker-command-cheat-sheet">Docker Command Cheat Sheet<a class="headerlink" href="#docker-command-cheat-sheet" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>docker ps</code></td>
+<td>List running containers</td>
+</tr>
+<tr>
+<td><code>docker ps -a</code></td>
+<td>List all containers (including stopped ones)</td>
+</tr>
+<tr>
+<td><code>docker logs &lt;container_name&gt;</code></td>
+<td>Show logs of a container</td>
+</tr>
+<tr>
+<td><code>docker logs -f &lt;container_name&gt;</code></td>
+<td>Follow container logs in real time</td>
+</tr>
+<tr>
+<td><code>docker stop &lt;container_name&gt;</code></td>
+<td>Stop a running container</td>
+</tr>
+<tr>
+<td><code>docker start &lt;container_name&gt;</code></td>
+<td>Start a stopped container</td>
+</tr>
+<tr>
+<td><code>docker restart &lt;container_name&gt;</code></td>
+<td>Restart a container</td>
+</tr>
+<tr>
+<td><code>docker exec -it &lt;container_name&gt; /bin/bash</code></td>
+<td>Open an interactive shell inside a container</td>
+</tr>
+<tr>
+<td><code>docker system df</code></td>
+<td>Show Docker disk usage (images, containers, volumes)</td>
+</tr>
+<tr>
+<td><code>docker system prune</code></td>
+<td>Remove unused containers, networks, and dangling images</td>
+</tr>
+<tr>
+<td><code>docker system prune -a</code></td>
+<td>Remove <strong>all</strong> unused images (frees more space, but requires re-pull)</td>
+</tr>
+<tr>
+<td><code>docker compose logs -f</code></td>
+<td>Show and follow logs of all services managed by Docker Compose</td>
+</tr>
+<tr>
+<td><code>docker compose down</code></td>
+<td>Stop and remove all containers defined in <code>docker-compose.yml</code></td>
+</tr>
+<tr>
+<td><code>docker compose up -d</code></td>
+<td>Start all containers in detached mode</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tip:</strong> Use <code>docker ps</code> to find the correct <code>&lt;container_name&gt;</code> before running log or exec commands.</p>
+<hr />
+<h3 id="summary">✅ Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Define <strong>who is responsible</strong> for maintaining the repo and images.</li>
+<li>Use <strong>branch protection, tags, and reviews</strong> to keep updates reliable.</li>
+<li>Keep the <strong>server update procedure</strong> documented and repeatable.</li>
+<li>Ensure <strong>multiple team members</strong> have access to avoid bottlenecks.</li>
+</ul>
+<hr />
+<h2 id="using-tags-to-version-the-pdi-nomad-oasis-image">Using Tags to Version the PDI NOMAD Oasis Image<a class="headerlink" href="#using-tags-to-version-the-pdi-nomad-oasis-image" title="Permanent link">&para;</a></h2>
+<p>Tags in Git and GitHub allow you to <strong>mark a specific commit</strong> with a version label (e.g. <code>v0.1.0</code>).
+This is useful for NOMAD Oasis because each tag corresponds to a reproducible Docker image.
+You can always deploy, roll back, or reference a tagged version.</p>
+<hr />
+<h3 id="why-use-tags">Why Use Tags?<a class="headerlink" href="#why-use-tags" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Reproducibility</strong> → the exact state of the code at the moment of tagging can always be retrieved.</li>
+<li><strong>Stability</strong> → the server can run a known-good version instead of always tracking the moving <code>main</code> branch.</li>
+<li><strong>Traceability</strong> → tags (together with GitHub Releases) provide a history of what changed.</li>
+</ul>
+<hr />
+<h3 id="step-by-step-creating-and-using-tags">Step-by-Step: Creating and Using Tags<a class="headerlink" href="#step-by-step-creating-and-using-tags" title="Permanent link">&para;</a></h3>
+<h4 id="1-make-sure-your-branch-is-up-to-date">1. Make sure your branch is up to date<a class="headerlink" href="#1-make-sure-your-branch-is-up-to-date" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>main
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+</code></pre></div>
+<h4 id="2-create-a-new-tag">2. Create a new tag<a class="headerlink" href="#2-create-a-new-tag" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>git<span class="w"> </span>tag<span class="w"> </span>v0.1.0
+</code></pre></div>
+<ul>
+<li>Replace <code>v0.1.0</code> with your desired version.</li>
+<li>Tag names usually start with <code>v</code> (semantic versioning: <code>vMAJOR.MINOR.PATCH</code>).</li>
+</ul>
+<h4 id="3-push-the-tag-to-github">3. Push the tag to GitHub<a class="headerlink" href="#3-push-the-tag-to-github" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>v0.1.0
+</code></pre></div>
+<ul>
+<li>This makes the tag visible in GitHub and triggers the <strong>docker-publish workflow</strong>.</li>
+<li>The CI builds new images and publishes them with the tag.</li>
+</ul>
+<hr />
+<h3 id="resulting-docker-images">Resulting Docker Images<a class="headerlink" href="#resulting-docker-images" title="Permanent link">&para;</a></h3>
+<p>If your repo is <code>PDI-Berlin/PDI-NOMAD-Oasis-image</code>, then:</p>
+<ul>
+<li>
+<p><strong>App image:</strong>
+  <code>ghcr.io/pdi-berlin/pdi-nomad-oasis-image:v0.1.0</code></p>
+</li>
+<li>
+<p><strong>Jupyter image:</strong>
+  <code>ghcr.io/pdi-berlin/pdi-nomad-oasis-image/jupyter:v0.1.0</code></p>
+</li>
+</ul>
+<p>(Instead of <code>:main</code>, you now have versioned tags like <code>:v0.1.0</code>.)</p>
+<hr />
+<h3 id="4-deploy-a-tagged-image-on-the-server">4. Deploy a Tagged Image on the Server<a class="headerlink" href="#4-deploy-a-tagged-image-on-the-server" title="Permanent link">&para;</a></h3>
+<p>In your <code>docker-compose.yaml</code>, update the <code>image:</code> entries from <code>:main</code> to your tag, for example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="nt">services</span><span class="p">:</span>
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="w">  </span><span class="nt">app</span><span class="p">:</span>
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/pdi-berlin/pdi-nomad-oasis-image:v0.1.0</span>
+<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="w">  </span><span class="nt">jupyter</span><span class="p">:</span>
+<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/pdi-berlin/pdi-nomad-oasis-image/jupyter:v0.1.0</span>
+</code></pre></div>
+<p>Then update the deployment:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>down
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>pull
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+</code></pre></div>
+<hr />
+<h3 id="5-optional-create-a-github-release">5. (Optional) Create a GitHub Release<a class="headerlink" href="#5-optional-create-a-github-release" title="Permanent link">&para;</a></h3>
+<p>To add documentation to your tag:</p>
+<ol>
+<li>Go to your GitHub repo → <strong>Releases</strong> → <strong>Draft a new release</strong></li>
+<li>Select your tag (<code>v0.1.0</code>)</li>
+<li>Write release notes (what changed, new plugins, fixes)</li>
+<li>Publish the release</li>
+</ol>
+<p>This makes it easier for others to know what each tag contains.</p>
+<hr />
+<h3 id="best-practices">✅ Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Use <strong>semantic versioning</strong> (<code>vMAJOR.MINOR.PATCH</code>)<ul>
+<li><code>MAJOR</code> → incompatible changes</li>
+<li><code>MINOR</code> → new features/plugins (backwards-compatible)</li>
+<li><code>PATCH</code> → bug fixes</li>
+</ul>
+</li>
+<li>Always <strong>tag before deploying to production</strong>.</li>
+<li>Keep the <strong>server pinned to a tag</strong>, not <code>main</code>.</li>
+<li>Document what each tag means in <strong>Releases</strong>.</li>
+</ul>
+<hr />
+<p>With this workflow, PDI can <strong>safely upgrade</strong> Oasis images and <strong>roll back</strong> to the previous version if something breaks.</p>
+<hr />
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><strong>Template init message persists</strong>
+  <em>Actions</em> → run <strong>Template Repository Initialization</strong> manually.</p>
+</li>
+<li>
+<p><strong>Can’t pull image / image not visible</strong>
+  Ensure the workflow succeeded; check package <strong>visibility</strong> (public/private).
+  If private, <strong><code>docker login ghcr.io</code></strong> with a PAT.</p>
+</li>
+<li>
+<p><strong>Plugin installation fails in CI</strong>
+  Validate <code>pyproject.toml</code> syntax; pin to valid tags/commits; ensure plugin repo is reachable/public (or CI has access).</p>
+</li>
+<li>
+<p><strong>HTTPS / TLS</strong>
+  For production, switch to HTTPS by providing a valid certificate and updating <code>docker-compose.yml</code> to use the HTTPS nginx config. For local testing you can use self-signed certs (browsers won’t trust them).</p>
+</li>
+</ul>
+<hr />
+<h2 id="quick-reference-add-plugin-build-use">Quick Reference: Add Plugin → Build → Use<a class="headerlink" href="#quick-reference-add-plugin-build-use" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>Edit <code>pyproject.toml</code></strong>
+   Add plugin lines under <code>[project.optional-dependencies].plugins</code>.</p>
+</li>
+<li>
+<p><strong>Commit &amp; push via a branch → PR → merge to <code>main</code></strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>add-my-plugin
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>git<span class="w"> </span>add<span class="w"> </span>pyproject.toml
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add plugin(s)&quot;</span>
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>add-my-plugin
+<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a><span class="c1"># open PR on GitHub and merge</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>CI builds images to GHCR</strong></p>
+<ul>
+<li>App: <code>ghcr.io/&lt;OWNER&gt;/&lt;REPO&gt;:main</code></li>
+<li>Jupyter: <code>ghcr.io/&lt;OWNER&gt;/&lt;REPO&gt;/jupyter:main</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Pull &amp; run</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>pull
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+</code></pre></div></p>
+</li>
+</ol>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <!--
+  Copyright (c) 2016-2025 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Footer -->
+<footer class="md-footer">
+
+  <!-- Link to previous and/or next page -->
+  
+    
+      
+      <nav
+        class="md-footer__inner md-grid"
+        aria-label=""
+        
+      >
+
+        <!-- Link to previous page -->
+        
+          
+          <a
+            href="part-3-collaborative-dev.html"
+            class="md-footer__link md-footer__link--prev"
+            aria-label="Previous: Part 3"
+          >
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Part 3
+              </div>
+            </div>
+          </a>
+        
+
+        <!-- Link to next page -->
+        
+          
+          <a
+            href="wrap-up.html"
+            class="md-footer__link md-footer__link--next"
+            aria-label="Next: Wrap-Up &amp; Q&amp;A"
+          >
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Wrap-Up & Q&A
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+
+  <div class="md-footer-meta md-footer-custom">
+    <div class="md-footer-license md-typeset">
+      <p>
+        © FAIRmat-NFDI (Apache 2.0) — Modified by Glaide Data GmbH.<br>
+        Licensed content; redistribution prohibited without permission.
+      </p>
+    </div>
+  </div>
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+
+      <!-- Social links -->
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.footer", "content.code.copy"], "search": "assets/javascripts/workers/search.c7dec7e7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.da79ceb7.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
