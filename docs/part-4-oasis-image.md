@@ -286,6 +286,94 @@ You should organize yourself regarding **responsibility** (who maintains the rep
       ```
 
 ---
+### Useful Docker Commands
+
+When working with NOMAD Oasis images, it’s helpful to know a few basic Docker commands for monitoring and troubleshooting:
+
+- **List running containers**  
+  ```bash
+  docker ps
+  ```
+  Shows all currently running containers with their names, IDs, ports, and status.
+
+- **Check logs of a container**  
+  ```bash
+  docker logs <container_name>
+  ```
+  Displays the output of a running container. Use this to check for errors or debug startup issues.  
+  Add `-f` to follow logs in real time:
+  ```bash
+  docker logs -f <container_name>
+  ```
+
+- **List all containers (including stopped)**  
+  ```bash
+  docker ps -a
+  ```
+
+- **Stop / start / restart a container**  
+  ```bash
+  docker stop <container_name>
+  docker start <container_name>
+  docker restart <container_name>
+  ```
+
+- **Remove unused images and containers**  
+  ```bash
+  docker system prune
+  ```
+  Cleans up stopped containers, dangling images, and unused networks.  
+  Add `-a` to remove all unused images (be careful, it frees space but requires re-pulling images later).
+
+- **Check disk usage**  
+  ```bash
+  docker system df
+  ```
+  Summarizes how much disk space images, containers, and volumes are using.
+
+- **Open a shell inside a container**  
+  ```bash
+  docker exec -it <container_name> /bin/bash
+  ```
+  Gives you direct access to the container’s shell, useful for advanced debugging.
+
+---
+
+**Tip:** Most NOMAD Oasis setups use `docker compose`, which manages multiple containers at once.  
+- To check logs of all services together:  
+  ```bash
+  docker compose logs -f
+  ```
+- To restart everything:  
+  ```bash
+  docker compose down
+  docker compose up -d
+  ```
+
+---
+
+### Docker Command Cheat Sheet
+
+| Command | Purpose |
+|---------|---------|
+| `docker ps` | List running containers |
+| `docker ps -a` | List all containers (including stopped ones) |
+| `docker logs <container_name>` | Show logs of a container |
+| `docker logs -f <container_name>` | Follow container logs in real time |
+| `docker stop <container_name>` | Stop a running container |
+| `docker start <container_name>` | Start a stopped container |
+| `docker restart <container_name>` | Restart a container |
+| `docker exec -it <container_name> /bin/bash` | Open an interactive shell inside a container |
+| `docker system df` | Show Docker disk usage (images, containers, volumes) |
+| `docker system prune` | Remove unused containers, networks, and dangling images |
+| `docker system prune -a` | Remove **all** unused images (frees more space, but requires re-pull) |
+| `docker compose logs -f` | Show and follow logs of all services managed by Docker Compose |
+| `docker compose down` | Stop and remove all containers defined in `docker-compose.yml` |
+| `docker compose up -d` | Start all containers in detached mode |
+
+**Tip:** Use `docker ps` to find the correct `<container_name>` before running log or exec commands.
+
+---
 
 ### ✅ Summary
 
